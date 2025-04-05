@@ -45,7 +45,10 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/placeholder.svg?height=800&width=1600')" }}>
+      <section
+        className="relative h-[70vh] bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/ali-kazal-Jgy3BeRwlgE-unsplash.jpg')" }}
+        >
           <div className="absolute inset-0 bg-black/40" />
           <div className="relative container mx-auto px-4 h-full flex flex-col justify-center text-white">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">Borrow. Lend. Explore.</h2>
