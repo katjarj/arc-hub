@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { gearData } from "@/lib/data"
 
-export default function Dashboard() {
+export default function Gear() {
   const [searchQuery, setSearchQuery] = useState("")
 
   const filteredGear = gearData.filter(
@@ -39,7 +39,7 @@ export default function Dashboard() {
               <path d="m18 15-6-6-6 6" />
               <path d="m18 9-6-6-6 6" />
             </svg>
-            <span className="font-bold">Arc&apos;teryx Gear Exchange</span>
+            <span className="font-bold">ARC&apos;SHARE&apos;YX</span>
           </Link>
 
           <div className="flex items-center gap-4">
