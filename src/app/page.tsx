@@ -25,7 +25,7 @@ export default function Home() {
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#" className="hover:underline">
-              How It Works
+              About Us
             </Link>
             <Link href="#" className="hover:underline">
               Browse Gear
