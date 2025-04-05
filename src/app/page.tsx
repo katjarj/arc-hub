@@ -61,20 +61,20 @@ export default function Home() {
                   Browse Available Gear
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+              <Button size="lg" className="text-black border-white bg-white hover:bg-white/70">
                 List Your Gear
               </Button>
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-[#F5F5F0]">
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="bg-white border-none shadow-md">
+              <Card className="bg-white border-black border-2">
                 <CardContent className="pt-6">
-                  <div className="rounded-full bg-[#4A6741] p-3 w-12 h-12 flex items-center justify-center mb-4">
+                  <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -98,9 +98,9 @@ export default function Home() {
                 </CardContent>
               </Card>
               
-              <Card className="bg-white border-none shadow-md">
+              <Card className="bg-white border-black border-2">
                 <CardContent className="pt-6">
-                  <div className="rounded-full bg-[#4A6741] p-3 w-12 h-12 flex items-center justify-center mb-4">
+                  <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -121,9 +121,9 @@ export default function Home() {
                 </CardContent>
               </Card>
               
-              <Card className="bg-white border-none shadow-md">
+              <Card className="bg-white border-black border-2">
                 <CardContent className="pt-6">
-                  <div className="rounded-full bg-[#4A6741] p-3 w-12 h-12 flex items-center justify-center mb-4">
+                  <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -245,95 +245,12 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="mt-8">
-                  <Button className="bg-[#4A6741] hover:bg-[#3A5331]">Join Now</Button>
-                </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-[#2B3A2B] text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-8">Featured Gear Categories</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="group">
-                <div className="aspect-square rounded-lg overflow-hidden mb-3 bg-white/10 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-12 w-12"
-                  >
-                    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-                    <circle cx="12" cy="13" r="3" />
-                  </svg>
-                </div>
-                <h3 className="font-medium">Jackets & Shells</h3>
-              </div>
-              <div className="group">
-                <div className="aspect-square rounded-lg overflow-hidden mb-3 bg-white/10 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-12 w-12"
-                  >
-                    <path d="M18.6 14.4c.8-.8.8-2 0-2.8l-8.1-8.1a4.95 4.95 0 1 0-7.1 7.1l8.1 8.1c.9.7 2.1.7 2.9-.1Z" />
-                    <path d="m22 22-5.5-5.5" />
-                  </svg>
-                </div>
-                <h3 className="font-medium">Backpacks</h3>
-              </div>
-              <div className="group">
-                <div className="aspect-square rounded-lg overflow-hidden mb-3 bg-white/10 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-12 w-12"
-                  >
-                    <path d="M19 5h-4V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V11h4a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1Z" />
-                  </svg>
-                </div>
-                <h3 className="font-medium">Climbing Gear</h3>
-              </div>
-              <div className="group">
-                <div className="aspect-square rounded-lg overflow-hidden mb-3 bg-white/10 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-12 w-12"
-                  >
-                    <path d="M18 20V6a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v14" />
-                    <path d="M2 20h20" />
-                    <path d="M14 12v.01" />
-                  </svg>
-                </div>
-                <h3 className="font-medium">Footwear</h3>
-              </div>
-            </div>
-            <div className="mt-10">
-              <Button variant="outline" className="text-white border-white hover:bg-white/10">
-                View All Categories
-              </Button>
+            <div className="mt-10 flex justify-center">
+            <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
+                Join Now
+            </Button>
             </div>
           </div>
         </section>
