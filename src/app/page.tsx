@@ -1,59 +1,50 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="bg-[#2B3A2B] text-white">
+      <header className="bg-white text-[#2B3A2B]">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-8 w-8"
-            >
-              <path d="m18 15-6-6-6 6" />
-              <path d="m18 9-6-6-6 6" />
-            </svg>
-            <h1 className="text-2xl font-bold">ARC&apos;SHARE&apos;YX</h1>
+          <img
+            src="/images/arc-logo.png"
+            alt="Arc Logo"
+            className="h-6 w-8"
+            />
+            <h1 className="text-2xl font-bold text-black">ARC&apos;SHARE&apos;YX</h1>
           </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="#" className="hover:underline">
-              How It Works
+          <div className="flex space-x-4">
+          <Link href="/dashboard">
+              <Button className="bg-white hover:bg-black hover:text-white px-4 py-4 text-md text-black border-black border-1">
+                Log In
+              </Button>
             </Link>
-            <Link href="#" className="hover:underline">
-              Browse Gear
-            </Link>
-            <Link href="#" className="hover:underline">
-              Community
-            </Link>
-            <Link href="#" className="hover:underline">
-              FAQ
-            </Link>
-          </nav>
-          <div>
             <Link href="/dashboard">
-              <Button className="bg-[#4A6741] hover:bg-[#3A5331]">Sign In</Button>
+              <Button className="bg-[#2B3A2B] hover:bg-black px-4 py-4 text-md">
+                Sign Up
+              </Button>
             </Link>
           </div>
         </div>
       </header>
       <main className="flex-1">
-      <section
-        className="relative h-[70vh] bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/ali-kazal-Jgy3BeRwlgE-unsplash.jpg')" }}
+        <section
+          className="relative h-[70vh] bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('/images/ali-kazal-Jgy3BeRwlgE-unsplash.jpg')",
+          }}
         >
           <div className="absolute inset-0 bg-black/40" />
           <div className="relative container mx-auto px-4 h-full flex flex-col justify-center text-white">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Borrow. Lend. Explore.</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+              Borrow. Lend. Explore.
+            </h2>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-              Share your gear with the Arc&apos;teryx community and borrow what you need for your next adventure.
+              Share your gear with the Arc&apos;teryx community and borrow what
+              you need for your next adventure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/dashboard">
@@ -61,7 +52,10 @@ export default function Home() {
                   Browse Available Gear
                 </Button>
               </Link>
-              <Button size="lg" className="text-black border-white bg-white hover:bg-white/70">
+              <Button
+                size="lg"
+                className="text-black border-white bg-white hover:bg-white/70"
+              >
                 List Your Gear
               </Button>
             </div>
@@ -70,7 +64,9 @@ export default function Home() {
 
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              How It Works
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="bg-white border-black border-2">
                 <CardContent className="pt-6">
@@ -91,13 +87,16 @@ export default function Home() {
                       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Join the Community</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Join the Community
+                  </h3>
                   <p className="text-gray-600">
-                    Sign up and receive your first sharing credit for free. Browse available gear or list your own items.
+                    Sign up and receive your first sharing credit for free.
+                    Browse available gear or list your own items.
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-white border-black border-2">
                 <CardContent className="pt-6">
                   <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
@@ -116,11 +115,12 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Share & Borrow</h3>
                   <p className="text-gray-600">
-                    Lend your gear to earn credits. Use credits to borrow gear from other community members.
+                    Lend your gear to earn credits. Use credits to borrow gear
+                    from other community members.
                   </p>
                 </CardContent>
               </Card>
-              
+
               <Card className="bg-white border-black border-2">
                 <CardContent className="pt-6">
                   <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
@@ -143,7 +143,8 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Rate & Review</h3>
                   <p className="text-gray-600">
-                    After each exchange, rate your experience to help build a trusted community of outdoor enthusiasts.
+                    After each exchange, rate your experience to help build a
+                    trusted community of outdoor enthusiasts.
                   </p>
                 </CardContent>
               </Card>
@@ -155,14 +156,16 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/2">
-                <img 
-                  src="/placeholder.svg?height=500&width=600" 
-                  alt="People exchanging outdoor gear" 
+                <img
+                  src="/placeholder.svg?height=500&width=600"
+                  alt="People exchanging outdoor gear"
                   className="rounded-lg shadow-lg"
                 />
               </div>
               <div className="md:w-1/2">
-                <h2 className="text-3xl font-bold mb-6">Why Join Our Gear Exchange?</h2>
+                <h2 className="text-3xl font-bold mb-6">
+                  Why Join Our Gear Exchange?
+                </h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="rounded-full bg-[#E8EFE6] p-2 mt-1">
@@ -180,8 +183,13 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Access Premium Gear</h3>
-                      <p className="text-gray-600">Try high-quality Arc&aposteryx equipment without the investment.</p>
+                      <h3 className="font-semibold text-lg">
+                        Access Premium Gear
+                      </h3>
+                      <p className="text-gray-600">
+                        Try high-quality Arc&aposteryx equipment without the
+                        investment.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -200,8 +208,13 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Reduce Environmental Impact</h3>
-                      <p className="text-gray-600">Share resources and reduce consumption by borrowing instead of buying.</p>
+                      <h3 className="font-semibold text-lg">
+                        Reduce Environmental Impact
+                      </h3>
+                      <p className="text-gray-600">
+                        Share resources and reduce consumption by borrowing
+                        instead of buying.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -220,8 +233,13 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Connect with the Community</h3>
-                      <p className="text-gray-600">Meet fellow outdoor enthusiasts and share experiences and advice.</p>
+                      <h3 className="font-semibold text-lg">
+                        Connect with the Community
+                      </h3>
+                      <p className="text-gray-600">
+                        Meet fellow outdoor enthusiasts and share experiences
+                        and advice.
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -240,20 +258,26 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Earn While You&apos;re Not Using Your Gear</h3>
-                      <p className="text-gray-600">Put your equipment to work when you&apos;re not using it by lending to others.</p>
+                      <h3 className="font-semibold text-lg">
+                        Earn While You&apos;re Not Using Your Gear
+                      </h3>
+                      <p className="text-gray-600">
+                        Put your equipment to work when you&apos;re not using it
+                        by lending to others.
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="mt-10 flex justify-center">
-            <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
+              <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
                 Join Now
-            </Button>
+              </Button>
             </div>
           </div>
         </section>
       </main>
     </div>
-  )}
+  );
+}
