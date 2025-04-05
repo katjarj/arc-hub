@@ -8,20 +8,22 @@ export default function Home() {
       <header className="bg-white text-[#2B3A2B]">
         <div className="container mx-auto px-4 py-6 flex justify-between items-center">
           <div className="flex items-center gap-2">
-          <img
-            src="/images/arc-logo.png"
-            alt="Arc Logo"
-            className="h-6 w-8"
+            <img
+              src="/images/arc-logo.png"
+              alt="Arc Logo"
+              className="h-6 w-8"
             />
-            <h1 className="text-2xl font-bold text-black">ARC&apos;SHARE&apos;YX</h1>
+            <h1 className="text-2xl font-bold text-black">
+              ARC&apos;SHARE&apos;YX
+            </h1>
           </div>
           <div className="flex space-x-4">
-          <Link href="/dashboard">
+            <Link href="/dashboard">
               <Button className="bg-white hover:bg-black hover:text-white px-4 py-4 text-md text-black border-black border-1">
                 Log In
               </Button>
             </Link>
-            <Link href="/dashboard">
+            <Link href="/sign-up">
               <Button className="bg-[#2B3A2B] hover:bg-black px-4 py-4 text-md">
                 Sign Up
               </Button>
@@ -69,7 +71,7 @@ export default function Home() {
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="bg-white border-black border-2">
-                <CardContent className="pt-6">
+                <CardContent className="pt-3">
                   <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -92,13 +94,13 @@ export default function Home() {
                   </h3>
                   <p className="text-gray-600">
                     Sign up and receive your first sharing credit for free.
-                    Browse available gear or list your own items.
+                    Browse available gear or list your own.
                   </p>
                 </CardContent>
               </Card>
 
               <Card className="bg-white border-black border-2">
-                <CardContent className="pt-6">
+                <CardContent className="pt-3">
                   <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +124,7 @@ export default function Home() {
               </Card>
 
               <Card className="bg-white border-black border-2">
-                <CardContent className="pt-6">
+                <CardContent className="pt-3">
                   <div className="rounded-full bg-black p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +154,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-16">
+        <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/2">
@@ -278,6 +280,11 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer className="mt-6 bg-black text-white py-6">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2025 ARC&apos;SHARE&apos;YX. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
