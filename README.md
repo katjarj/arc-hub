@@ -1,1 +1,1 @@
-Image credit: Ali Kazal/Unsplash
+Image credits: Ali Kazal/Unsplash, Arc'teryx
