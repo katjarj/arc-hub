@@ -116,8 +116,8 @@ export default function UserDashboard() {
               <TabsContent value="activity" className="mt-0 space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Pending Requests</CardTitle>
-                    <CardDescription>Requests that need your attention</CardDescription>
+                    <CardTitle>My Current Requests</CardTitle>
+                    <CardDescription>Things I'm currently looking for</CardDescription>
                   </CardHeader>
                   <CardContent>
                     {pendingRequests.length > 0 ? (
@@ -135,23 +135,17 @@ export default function UserDashboard() {
                               <div className="flex justify-between">
                                 <div>
                                   <h4 className="font-medium">{item.name}</h4>
-                                  <p className="text-sm text-gray-500">Requested by: Alex Rivera</p>
+                                  <p className="text-sm text-gray-500">Going to be hiking near Lillooet for a few days. Please let me know if you have a good rain shell I could borrow. I also have space for two more in my car if anyone wants to come along! </p>
                                 </div>
                                 <Badge className="bg-amber-500">Pending</Badge>
                               </div>
                               <div className="flex items-center gap-2 mt-2 text-sm text-gray-600">
                                 <Calendar className="h-4 w-4" />
-                                <span>May 15 - May 20, 2023</span>
+                                <span>May 15 - May 20, 2025</span>
                               </div>
                               <div className="flex gap-2 mt-3">
                                 <Button size="sm" className="bg-[#4A6741] hover:bg-[#3A5331]">
-                                  Approve
-                                </Button>
-                                <Button size="sm" variant="outline">
-                                  Decline
-                                </Button>
-                                <Button size="sm" variant="outline">
-                                  Message
+                                  Edit Request
                                 </Button>
                               </div>
                             </div>
