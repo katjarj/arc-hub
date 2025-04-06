@@ -16,6 +16,11 @@ import useCurrentUser from "@/app/hooks/useCurrentUser";
 import { updateCredits } from "./creditManagement"; // Import updateCredits function
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
+
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -26,6 +31,7 @@ export default function Home() {
 
   // Fetch user profile data using the custom hook - THIS MUST BE AT THE TOP LEVEL
   const { user, loading } = useCurrentUser();
+  const router = useRouter();
 
   // Add a new post to the Firestore database
   const addPost = async (e) => {
@@ -168,11 +174,11 @@ export default function Home() {
 
             {/* Logout Button */}
             <button
-              className="bg-white hover:bg-black hover:text-white px-3 py-1 text-md text-black border border-black rounded-md"
+              className="bg-white hover:bg-black hover:text-white px-2 py-0.5 text-md text-black border-black border-1 rounded-md"
               onClick={() => {
-                signOut(auth);
-                sessionStorage.removeItem("currentUser");
-                router.push("/");
+                signOut(auth); // Sign the user out of Firebase
+                sessionStorage.removeItem("user"); // Remove the user session
+                router.push("/"); // Redirect to the home page
               }}
             >
               Log Out
