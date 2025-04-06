@@ -76,7 +76,7 @@ export default function Gear() {
       // Update the user's credits
       try {
         // Assuming you have a function like `updateCredits` to update user credits
-        await updateCredits(user.uid, 1);
+        await updateCredits(user.uid, 3);
 
         // Mark the post as fulfilled by adding it to the state
         setFulfilledPosts(new Set(fulfilledPosts.add(postId)));
