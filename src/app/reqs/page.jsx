@@ -21,7 +21,6 @@ import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 
-
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({
@@ -34,19 +33,44 @@ export default function Home() {
   const router = useRouter();
 
   // Add a new post to the Firestore database
+  //   const addPost = async (e) => {
+  //     e.preventDefault();
+  //     const { title, description } = newPost;
+  //     if (title && description) {
+  //       try {
+  //         await addDoc(collection(fs, "posts"), {
+  //           title: title.trim(),
+  //           description: description.trim(),
+  //           createdAt: serverTimestamp(),
+  //           available: true,
+  //           userId: user?.uid || "anonymous", // Store the user ID with the post
+  //         });
+  //         setNewPost({ title: "", description: "" }); // Reset form
+  //       } catch (error) {
+  //         console.error("Error adding post:", error);
+  //       }
+  //     }
+  //   };
   const addPost = async (e) => {
     e.preventDefault();
     const { title, description } = newPost;
+
     if (title && description) {
       try {
+        // Add post to Firestore with userId
         await addDoc(collection(fs, "posts"), {
           title: title.trim(),
           description: description.trim(),
           createdAt: serverTimestamp(),
           available: true,
-          userId: user?.uid || "anonymous", // Store the user ID with the post
+          userId: user?.uid || "anonymous", // Link post to specific user
         });
-        setNewPost({ title: "", description: "" }); // Reset form
+
+        // Subtract one credit from the user's balance
+        await updateCredits(user.uid, -1);
+
+        // Clear the form
+        setNewPost({ title: "", description: "" });
       } catch (error) {
         console.error("Error adding post:", error);
       }
@@ -94,51 +118,28 @@ export default function Home() {
     }
   };
 
-  // Toggle post availability status and update user credits
-  //   const toggleAvailability = async (id, available) => {
+  //   const toggleAvailability = async (id, currentAvailability) => {
   //     try {
-  //       // First check if we have a valid user
   //       if (!user || loading) {
   //         console.log("No user found or still loading user data");
   //         return;
   //       }
 
+  //       const newAvailability = !currentAvailability;
+
   //       // Update post availability
   //       const postRef = doc(fs, "posts", id);
   //       await updateDoc(postRef, {
-  //         available: !available,
+  //         available: newAvailability,
   //       });
 
-  //       // Update user credits - only if user is authenticated
-  //       console.log("Updating credits for user:", user.uid);
-  //       await updateCredits(user.uid);
+  //       // Update credits based on what we're toggling to
+  //       const creditChange = newAvailability ? -1 : 1; // Going from fulfilled -> open = -1, open -> fulfilled = +1
+  //       await updateCredits(user.uid, creditChange);
   //     } catch (error) {
   //       console.error("Error toggling availability:", error);
   //     }
   //   };
-
-  const toggleAvailability = async (id, currentAvailability) => {
-    try {
-      if (!user || loading) {
-        console.log("No user found or still loading user data");
-        return;
-      }
-
-      const newAvailability = !currentAvailability;
-
-      // Update post availability
-      const postRef = doc(fs, "posts", id);
-      await updateDoc(postRef, {
-        available: newAvailability,
-      });
-
-      // Update credits based on what we're toggling to
-      const creditChange = newAvailability ? -1 : 1; // Going from fulfilled -> open = -1, open -> fulfilled = +1
-      await updateCredits(user.uid, creditChange);
-    } catch (error) {
-      console.error("Error toggling availability:", error);
-    }
-  };
 
   return (
     <div>
