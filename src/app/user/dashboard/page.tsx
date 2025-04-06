@@ -55,7 +55,7 @@ export default function UserDashboard() {
       {/* Header */}
       <header className="bg-white text-black sticky text-lg top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/dashboard" className="flex items-center gap-2">
             <img
               src="/images/arc-logo.png"
               alt="Arc Logo"
