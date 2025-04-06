@@ -6,14 +6,27 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, doc, onSnapshot,updateDoc } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useCurrentUser from "@/app/hooks/useCurrentUser";
+import { updateCredits } from "./creditManagement"; // Import updateCredits function
 
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
+
+// import {
+//     collection,
+//     addDoc,
+//     onSnapshot,
+//     query,
+//     deleteDoc,
+//     doc,
+//     updateDoc,
+//     serverTimestamp,
+//     where,
+//   } from "firebase/firestore";
 
 interface Post {
   id: string;
@@ -28,7 +41,8 @@ export default function Gear() {
   const { user, loading } = useCurrentUser();
   const [searchQuery, setSearchQuery] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
-//   const [user] = useAuthState(auth);
+  const [fulfilledPosts, setFulfilledPosts] = useState<Set<string>>(new Set());
+  //   const [user] = useAuthState(auth);
   const router = useRouter();
 
   useEffect(() => {
@@ -56,6 +70,24 @@ export default function Gear() {
       post.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const handleFulfillRequest = async (postId: string) => {
+    if (user && !fulfilledPosts.has(postId)) {
+      // Update the user's credits
+      try {
+        // Assuming you have a function like `updateCredits` to update user credits
+        await updateCredits(user.uid, 1);
+
+        // Mark the post as fulfilled by adding it to the state
+        setFulfilledPosts(new Set(fulfilledPosts.add(postId)));
+
+        // Optionally, update the post status in your database if needed
+        const postRef = doc(fs, "posts", postId);
+        await updateDoc(postRef, { fulfilled: true });
+      } catch (error) {
+        console.error("Error fulfilling the request:", error);
+      }
+    }
+  };
   return (
     <div className="min-h-screen bg-[#f6f6f6]">
       <header className="bg-white text-black sticky text-lg top-0 z-10">
@@ -195,12 +227,23 @@ export default function Gear() {
                         <p className="text-gray-600 mb-4">{post.date}</p>
                         <p className="text-gray-600 mb-4">{post.about}</p>
                         <div className="flex justify-between items-center">
-                          <Button
-                            size="sm"
-                            className="bg-[#4A6741] hover:bg-[#3A5331]"
-                          >
-                            Fulfill Request
-                          </Button>
+                          {fulfilledPosts.has(post.id) ? (
+                            <Button
+                              size="sm"
+                              className="bg-gray-500 text-white cursor-not-allowed"
+                              disabled
+                            >
+                              Fulfilled
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              className="bg-[#4A6741] hover:bg-[#3A5331]"
+                              onClick={() => handleFulfillRequest(post.id)}
+                            >
+                              Fulfill Request
+                            </Button>
+                          )}
                         </div>
                       </CardContent>
                     </Card>
