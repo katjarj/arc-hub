@@ -75,7 +75,7 @@ export default function Home() {
         await updateCredits(user.uid, -1);
 
         // Clear the form
-        setNewPost({ title: "", description: "", date: "", description: "" });
+        setNewPost({ title: "", description: "", date: "", about: "" });
       } catch (error) {
         console.error("Error adding post:", error);
       }
