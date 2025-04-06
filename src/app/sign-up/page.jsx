@@ -36,7 +36,7 @@ const SignUp = () => {
         organizationName, // Store the organization name here
         uid: userData.uid,
         createdAt: new Date(),
-        credits: 1,
+        credits: 3,
       };
 
       // Store the profile data in Firestore
