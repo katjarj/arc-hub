@@ -17,6 +17,8 @@ interface Post {
   id: string;
   title: string;
   description: string;
+  date: string;
+  about: string;
 }
 
 export default function Gear() {
@@ -34,6 +36,8 @@ export default function Gear() {
           id: doc.id,
           title: data.title || "", // default to an empty string if missing
           description: data.description || "",
+          date: data.date || "",
+          about: data.about || "",
         } as Post;
       });
       setPosts(postsArr);
@@ -179,6 +183,8 @@ export default function Gear() {
                       <CardContent className="p-6">
                         <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
                         <p className="text-gray-600 mb-4">{post.description}</p>
+                        <p className="text-gray-600 mb-4">{post.date}</p>
+                        <p className="text-gray-600 mb-4">{post.about}</p>
                         <div className="flex justify-between items-center">
                           <Button size="sm" className="bg-[#4A6741] hover:bg-[#3A5331]">
                             Fulfill Request
