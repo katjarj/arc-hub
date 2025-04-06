@@ -140,7 +140,7 @@ export default function UserDashboard() {
                   <CardHeader>
                     <CardTitle>Current Requests</CardTitle>
                     <CardDescription>
-                      Things you're currently looking for
+                      Things you&apos;re currently looking for
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
