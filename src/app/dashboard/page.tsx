@@ -105,9 +105,9 @@ export default function Gear() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="md:w-64 space-y-6">
+          <div className="md:w-64 space-y-5">
             <Card>
-              <CardContent className="p-4">
+              <CardContent>
                 <h3 className="font-medium mb-3 flex items-center gap-2">
                   <Filter className="h-4 w-4" />
                   Filters
@@ -146,31 +146,6 @@ export default function Gear() {
                   </div>
                   <div>
                     <label className="text-sm font-medium mb-1 block">
-                      Credits
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge
-                        variant="outline"
-                        className="cursor-pointer hover:bg-[#4A6741] hover:text-white"
-                      >
-                        1 Credit
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="cursor-pointer hover:bg-[#4A6741] hover:text-white"
-                      >
-                        2 Credits
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="cursor-pointer hover:bg-[#4A6741] hover:text-white"
-                      >
-                        3+ Credits
-                      </Badge>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">
                       Location
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -197,55 +172,11 @@ export default function Gear() {
                 </div>
               </CardContent>
             </Card>
-
-            <Card>
-              <CardContent className="p-4">
-                <h3 className="font-medium mb-3">Your Activity</h3>
-                <div className="space-y-3">
-                  <div className="border-b pb-3">
-                    <p className="font-medium text-sm">Your Open Requests</p>
-                    <p className="text-sm text-gray-500">2 requests</p>
-                  </div>
-                  <div className="border-b pb-3">
-                    <p className="font-medium text-sm">
-                      Requests You&apos;re Fulfilling
-                    </p>
-                    <p className="text-sm text-gray-500">1 request</p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm">Available Credits</p>
-                    <p className="text-sm text-gray-500">
-                      {currentUser.credits} credits
-                    </p>
-                  </div>
-                </div>
-                <Button
-                  variant="link"
-                  className="text-[#4A6741] p-0 h-auto mt-2"
-                >
-                  <Link href="/user/dashboard">View your dashboard</Link>
-                </Button>
-              </CardContent>
-            </Card>
           </div>
 
           <div className="flex-1">
             <div className="flex justify-between items-center mb-6">
               <h1 className="text-2xl font-bold">Open Gear Requests</h1>
-              <div className="flex items-center gap-2">
-                <Button variant="outline" className="gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span className="hidden md:inline">Date Range</span>
-                </Button>
-                <Button variant="outline" className="gap-2">
-                  <MapPin className="h-4 w-4" />
-                  <span className="hidden md:inline">Near Me</span>
-                </Button>
-                <Button variant="outline" className="gap-2">
-                  <ArrowUpDown className="h-4 w-4" />
-                  <span className="hidden md:inline">Sort</span>
-                </Button>
-              </div>
             </div>
 
             <div className="flex justify-between items-center mb-6">
@@ -254,31 +185,34 @@ export default function Gear() {
                   {openRequests.length} open requests
                 </span>
               </div>
-              <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4 mr-2"
-                >
-                  <path d="M12 5v14" />
-                  <path d="M5 12h14" />
-                </svg>
-                Create Request
-              </Button>
             </div>
 
             <Tabs defaultValue="all">
-              <TabsList className="mb-6">
-                <TabsTrigger value="all">All Requests</TabsTrigger>
-                <TabsTrigger value="jackets">Jackets</TabsTrigger>
-                <TabsTrigger value="backpacks">Backpacks</TabsTrigger>
-                <TabsTrigger value="climbing">Climbing</TabsTrigger>
-                <TabsTrigger value="footwear">Footwear</TabsTrigger>
+              <TabsList className="mb-6 flex justify-between w-full">
+                <div className="flex gap-2">
+                  <TabsTrigger value="all">All Requests</TabsTrigger>
+                  <TabsTrigger value="jackets">Jackets</TabsTrigger>
+                  <TabsTrigger value="backpacks">Backpacks</TabsTrigger>
+                  <TabsTrigger value="climbing">Climbing</TabsTrigger>
+                  <TabsTrigger value="footwear">Footwear</TabsTrigger>
+                </div>
+
+                <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4 mr-2"
+                  >
+                    <path d="M12 5v14" />
+                    <path d="M5 12h14" />
+                  </svg>
+                  Create Request
+                </Button>
               </TabsList>
 
               <TabsContent value="all" className="mt-0">
@@ -633,7 +567,6 @@ export default function Gear() {
                                   <span>{request.timeframe}</span>
                                 </div>
                                 <div className="flex items-center gap-2 mt-auto">
-
                                   <div>
                                     <p className="text-sm font-medium">
                                       {request.requester.name}
