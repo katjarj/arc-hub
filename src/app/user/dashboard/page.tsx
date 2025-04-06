@@ -101,7 +101,7 @@ export default function UserDashboard() {
                     {user.credits} Credits Available
                   </div>
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
-                    {user.organizationName} Organization
+                    {user.organizationName}
                   </div>
                   <div className="w-full space-y-2">
                     <Button variant="outline" className="w-full justify-start">
