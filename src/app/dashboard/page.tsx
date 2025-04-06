@@ -203,9 +203,8 @@ export default function Gear() {
                   <TabsTrigger value="climbing">Climbing</TabsTrigger>
                   <TabsTrigger value="footwear">Footwear</TabsTrigger>
                 </div>
-
                 <Link href="/reqs">
-                  <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
+                  <Button className="bg-[#4A6741] hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
