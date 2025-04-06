@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Package, Settings, UserCircle } from "lucide-react";
+import { Package } from "lucide-react";
 import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
 import useCurrentUser from "@/app/hooks/useCurrentUser";
