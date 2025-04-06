@@ -259,17 +259,6 @@ export default function Home() {
                       Status: {post.available ? "Open" : "Fulfilled"}
                     </span>
                   </div>
-                  <div className="ml-8 p-4 border-black w-32 flex items-center justify-center">
-                    <button
-                      onClick={() =>
-                        toggleAvailability(post.id, post.available)
-                      }
-                      className="bg-white text-black py-2 w-xl rounded hover:text-white hover:bg-[#4A6741]"
-                      disabled={loading || !user}
-                    >
-                      {post.available ? "Mark as Fulfilled" : "Mark as Open"}
-                    </button>
-                  </div>
                   <button
                     onClick={() => deletePost(post.id)}
                     className="ml-8 p-4 text-xl border-[#2e2e2e] hover:bg-white/10 w-16"
