@@ -24,16 +24,6 @@ import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
 
 export default function UserDashboard() {
-  // Mock user data
-  const user = {
-    name: "John Doe",
-    credits: 3,
-    memberSince: "January 2023",
-    location: "Vancouver, BC",
-    rating: 4.8,
-    reviewCount: 12,
-  };
-
   // Filter gear for different tabs
   const borrowing = gearData.filter((_, index) => index === 2); // Mock data - just one item
   const lending = gearData.filter((_, index) => index === 5); // Mock data - just one item
@@ -65,7 +55,7 @@ export default function UserDashboard() {
                 {currentUser.credits} Credits
               </div>
               <div className="flex items-center space-x-10">
-                <Link href="/user/dashboard">
+                <Link href="/currentUser/dashboard">
                   <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none ">
                     {currentUser.name}
                   </Button>
@@ -73,8 +63,8 @@ export default function UserDashboard() {
                 <button
                   className="bg-white hover:bg-black hover:text-white px-2 py-0.5 text-md text-black border-black border-1 rounded-md"
                   onClick={() => {
-                    signOut(auth); // Sign the user out of Firebase
-                    sessionStorage.removeItem("user"); // Remove the user session
+                    signOut(auth); // Sign the currentUser out of Firebase
+                    sessionStorage.removeItem("currentUser"); // Remove the currentUser session
                     router.push("/"); // Redirect to the home page
                   }}
                 >
@@ -92,11 +82,11 @@ export default function UserDashboard() {
             <Card>
               <CardContent className="px-6">
                 <div className="flex flex-col items-center text-center">
-                  <h2 className="text-xl font-bold mb-1">{user.name}</h2>
+                  <h2 className="text-xl font-bold mb-1">{currentUser.name}</h2>
                   <div className="flex items-center mb-2">
                     <MapPin className="h-4 w-4 text-gray-500 mr-1" />
                     <span className="text-sm text-gray-500">
-                      {user.location}
+                      {currentUser.location}
                     </span>
                   </div>
                   <div className="flex items-center mb-4">
@@ -104,18 +94,18 @@ export default function UserDashboard() {
                       <Star
                         key={i}
                         className={`h-4 w-4 ${
-                          i < Math.floor(user.rating)
+                          i < Math.floor(currentUser.rating)
                             ? "fill-yellow-400 text-yellow-400"
                             : "text-gray-300"
                         }`}
                       />
                     ))}
                     <span className="text-sm text-gray-500 ml-1">
-                      ({user.reviewCount})
+                      ({currentUser.reviewCount})
                     </span>
                   </div>
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
-                    {user.credits} Credits Available
+                    {currentUser.credits} Credits Available
                   </div>
                   <div className="w-full space-y-2">
                     <Button variant="outline" className="w-full justify-start">
