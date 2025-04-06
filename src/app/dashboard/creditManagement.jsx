@@ -2,7 +2,7 @@
 import { fs } from "@/app/firebase/config";
 import { doc, updateDoc, increment } from "firebase/firestore";
 
-export const updateCredits = async (uid, amount = 1) => {
+export const updateCredits = async (uid, amount = 3) => {
   try {
     const userDocRef = doc(fs, "users", uid);
     await updateDoc(userDocRef, {
