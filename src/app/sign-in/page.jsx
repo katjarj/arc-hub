@@ -17,7 +17,7 @@ const SignIn = () => {
         sessionStorage.setItem('user', true)
         setEmail('');
         setPassword('');
-        router.push('/')
+        router.push('/dashboard')
     }catch(e){
         console.error(e)
     }
