@@ -96,7 +96,7 @@ export default function UserDashboard() {
             <Card>
               <CardContent className="px-6">
                 <div className="flex flex-col items-center text-center">
-                  <h2 className="text-xxl font-bold mb-1">{user.name}</h2>
+                  <h2 className="text-xl font-bold mb-1">{user.name}</h2>
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
                     {user.credits} Credits Available
                   </div>
