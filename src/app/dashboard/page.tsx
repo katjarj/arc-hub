@@ -52,8 +52,6 @@ export default function Gear() {
               alt="Arc Logo"
               className="h-6 w-8"
             />
-            <path d="m18 15-6-6-6 6" />
-            <path d="m18 9-6-6-6 6" />
             <span className="font-bold">ARC&apos;SHARE&apos;YX</span>
           </Link>
 
@@ -176,7 +174,7 @@ export default function Gear() {
                 </div>
               </CardContent>
             </Card>
-            <Link href="/dashboard">
+            <Link href="/user/dashboard">
               <Button className="w-full bg-[#4A6741] text-white text-md p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
                 View My Dashboard
               </Button>
