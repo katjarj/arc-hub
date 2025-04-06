@@ -1,24 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Calendar,
-  MapPin,
-  Package,
-  Settings,
-  Star,
-  UserCircle,
-} from "lucide-react";
-import { gearData } from "@/lib/data";
+import { Package, Settings, UserCircle } from "lucide-react";
 import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
 import useCurrentUser from "@/app/hooks/useCurrentUser";
@@ -65,19 +49,13 @@ export default function UserDashboard() {
   if (!user) {
     return <div>Please sign in to view your dashboard.</div>;
   }
-  // Filter gear for different tabs
-  const borrowing = gearData.filter((_, index) => index === 2); // Mock data - just one item
-  const lending = gearData.filter((_, index) => index === 5); // Mock data - just one item
-  const pendingRequests = gearData
-    .filter((_, index) => index === 0 || index === 1)
-    .slice(0, 2); // Mock data - first two items
 
   return (
     <div className="min-h-screen bg-[#f6f6f6]">
       {/* Header */}
       <header className="bg-white text-black sticky text-lg top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/dashboard" className="flex items-center gap-2">
             <img
               src="/images/arc-logo.png"
               alt="Arc Logo"
@@ -144,7 +122,7 @@ export default function UserDashboard() {
 
           {/* Right Column: Only Activity Tab for User's Requests */}
           <div className="md:col-span-3">
-            <h1 className="text-2xl font-bold py-5">Your Active Requests</h1>
+            <h1 className="text-2xl font-bold mb-5 mt-2 ml-2">Your Active Requests</h1>
             {posts.length > 0 ? (
               <div className="space-y-4">
                 {posts.map((post) => (
@@ -178,7 +156,8 @@ export default function UserDashboard() {
                   No requests made yet
                 </h3>
                 <p className="text-gray-500 mb-4">
-                  You haven't made any requests yet. Create one to get started!
+                  You haven&apos;t made any requests yet. Create one to get
+                  started!
                 </p>
               </div>
             )}
