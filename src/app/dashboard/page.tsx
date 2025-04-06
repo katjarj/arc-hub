@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { collection, doc, onSnapshot,updateDoc } from "firebase/firestore";
+import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
 import useCurrentUser from "@/app/hooks/useCurrentUser";
 import { updateCredits } from "./creditManagement"; // Import updateCredits function
@@ -33,7 +33,7 @@ interface Post {
   description: string;
   date: string;
   about: string;
-  fulfilled: boolean,
+  fulfilled: boolean;
 }
 
 export default function Gear() {
@@ -165,34 +165,22 @@ export default function Gear() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-6">
-          <div className="md:w-64 space-y-5">
-            {/* Filters Section */}
-            <Card>
-              <CardContent>
-                <h3 className="font-medium mb-3">Filters</h3>
-                {/* Add filters here if needed */}
-              </CardContent>
-            </Card>
-
-            {/* Add View Dashboard button */}
-            <Link href="/user/dashboard">
-              <Button className="w-full bg-[#4A6741] text-white text-md p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
-                View My Dashboard
-              </Button>
-            </Link>
-          </div>
-
           <div className="flex-1">
             <div className="flex justify-between items-center mb-6">
-              <h1 className="text-2xl font-bold">All Posts</h1>
+              <h1 className="text-2xl font-bold">All Requests</h1>
             </div>
 
             <Tabs defaultValue="all">
               <TabsList className="mb-6 flex justify-between w-full">
-                <div className="flex gap-2">
-                  <TabsTrigger value="all">All Posts</TabsTrigger>
-                </div>
                 {/* Add Gear button */}
+                <div className="space-y-5">
+                  {/* Add View Dashboard button */}
+                  <Link href="/user/dashboard">
+                    <Button className="bg-[#4A6741] hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
+                      View My Dashboard
+                    </Button>
+                  </Link>
+                </div>
                 <Link href="/reqs">
                   <Button className="bg-[#4A6741] hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
                     <svg
@@ -228,24 +216,24 @@ export default function Gear() {
                         <p className="text-gray-600 mb-4">{post.date}</p>
                         <p className="text-gray-600 mb-4">{post.about}</p>
                         <div className="flex justify-between items-center">
-  {post.fulfilled ? (
-    <Button
-      size="sm"
-      className="bg-gray-500 text-white cursor-not-allowed"
-      disabled
-    >
-      Fulfilled
-    </Button>
-  ) : (
-    <Button
-      size="sm"
-      className="bg-[#4A6741] hover:bg-[#3A5331]"
-      onClick={() => handleFulfillRequest(post.id)}
-    >
-      Fulfill Request
-    </Button>
-  )}
-</div>
+                          {post.fulfilled ? (
+                            <Button
+                              size="sm"
+                              className="bg-gray-500 text-white cursor-not-allowed"
+                              disabled
+                            >
+                              Fulfilled
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              className="bg-[#4A6741] hover:bg-[#3A5331]"
+                              onClick={() => handleFulfillRequest(post.id)}
+                            >
+                              Fulfill Request
+                            </Button>
+                          )}
+                        </div>
                       </CardContent>
                     </Card>
                   ))}
