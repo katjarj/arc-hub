@@ -18,7 +18,7 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex space-x-4">
-            <Link href="/dashboard">
+            <Link href="/sign-in">
               <Button className="bg-white hover:bg-black hover:text-white px-4 py-4 text-md text-black border-black border-1">
                 Log In
               </Button>
@@ -189,7 +189,7 @@ export default function Home() {
                         Access Premium Gear
                       </h3>
                       <p className="text-gray-600">
-                        Try high-quality Arc&aposteryx equipment without the
+                        Try high-quality Arc&apos;teryx equipment without the
                         investment.
                       </p>
                     </div>
