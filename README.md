@@ -2,7 +2,7 @@
 
 **The better way to gear up is together.**
 
-We are Grace, Jaza, Katja, and Kirsten&mdash;the team behind ARC'SHARE'YX.
+We are Grace Lam, Jaza Khan, Katja Radovic-Jonsson, and Kirsten Fearman&mdash;the team behind ARC'SHARE'YX.
 
 ARC'SHARE'YX is a web app created for youCode, a 24-hour hackathon dedicated to fostering gender inclusivity and breaking traditional norms in the tech industry. It tackles the Arc'teryx case: How can we build and maintain connections across the various outdoor communities we touch?
 
