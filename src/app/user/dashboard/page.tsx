@@ -55,7 +55,7 @@ export default function UserDashboard() {
                 {currentUser.credits} Credits
               </div>
               <div className="flex items-center space-x-10">
-                <Link href="/currentUser/dashboard">
+                <Link href="/user/dashboard">
                   <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none ">
                     {currentUser.name}
                   </Button>
@@ -122,7 +122,7 @@ export default function UserDashboard() {
             </Card>
             <Link href="/dashboard">
               <Button className="w-full bg-[#4A6741] text-white hover:bg-[#3a5434] mt-6 text-lg p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
-                View All Gear Requests
+                View Open Gear Requests
               </Button>
             </Link>
           </div>
