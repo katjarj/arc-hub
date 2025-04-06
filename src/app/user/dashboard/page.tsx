@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -22,17 +21,25 @@ import {
 import { gearData, currentUser } from "@/lib/data";
 import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
+import useCurrentUser from "@/app/hooks/useCurrentUser";
 
 export default function UserDashboard() {
+  const { user, loading } = useCurrentUser();
+  const auth = getAuth();
+  const router = useRouter();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (!user) {
+    return <div>Please sign in to view your dashboard.</div>;
+  }
   // Filter gear for different tabs
   const borrowing = gearData.filter((_, index) => index === 2); // Mock data - just one item
   const lending = gearData.filter((_, index) => index === 5); // Mock data - just one item
   const pendingRequests = gearData
     .filter((_, index) => index === 0 || index === 1)
     .slice(0, 2); // Mock data - first two items
-
-  const auth = getAuth();
-  const router = useRouter();
 
   return (
     <div className="min-h-screen bg-[#f6f6f6]">

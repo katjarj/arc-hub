@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/app/sign-up/page.jsx"  ],
+, "src/app/sign-up/page.jsx", "src/app/hooks/useCurrentUser.jsx"  ],
   "exclude": [
     "node_modules"
   ]
