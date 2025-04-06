@@ -172,7 +172,7 @@ export default function UserDashboard() {
                               </div>
                               <div className="flex items-center gap-2 mt-2 text-sm text-gray-600">
                                 <Calendar className="h-4 w-4" />
-                                <span>May 15 - May 20, 2023</span>
+                                <span>May 15 - May 20, 2025</span>
                               </div>
                               <div className="flex gap-2 mt-3">
                                 <Button
