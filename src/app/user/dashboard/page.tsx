@@ -121,7 +121,7 @@ export default function UserDashboard() {
               </CardContent>
             </Card>
             <Link href="/dashboard">
-              <Button className="w-full bg-[#4A6741] text-white hover:bg-[#3a5434] mt-6 text-lg p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
+              <Button className="w-full bg-[#4A6741] text-white mt-6 text-lg p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
                 View Open Gear Requests
               </Button>
             </Link>
