@@ -74,7 +74,7 @@ export default function Gear() {
               </div>
               <div className="flex items-center space-x-10">
                 <Link href="/user/dashboard">
-                  <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none ">
+                  <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none cursor-pointer">
                     {currentUser.name}
                   </Button>
                 </Link>
