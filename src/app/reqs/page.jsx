@@ -9,6 +9,7 @@ import {
   doc,
   updateDoc,
   serverTimestamp,
+  where,
 } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
 import useCurrentUser from "@/app/hooks/useCurrentUser";
@@ -48,7 +49,13 @@ export default function Home() {
 
   // Read posts from Firestore
   useEffect(() => {
-    const q = query(collection(fs, "posts"));
+    if (!user || loading) return;
+
+    const q = query(
+      collection(fs, "posts"),
+      where("userId", "==", user.uid) // Only get posts created by the current user
+    );
+
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const postsArr = snapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -58,7 +65,19 @@ export default function Home() {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [user, loading]);
+  //   useEffect(() => {
+  //     const q = query(collection(fs, "posts"));
+  //     const unsubscribe = onSnapshot(q, (snapshot) => {
+  //       const postsArr = snapshot.docs.map((doc) => ({
+  //         ...doc.data(),
+  //         id: doc.id,
+  //       }));
+  //       setPosts(postsArr);
+  //     });
+
+  //     return () => unsubscribe();
+  //   }, []);
 
   // Delete a post from Firestore
   const deletePost = async (id) => {
