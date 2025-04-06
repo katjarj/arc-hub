@@ -43,7 +43,7 @@ export default function Gear() {
   //   }
 
   return (
-    <div className="min-h-screen bg-[#F5F5F0]">
+    <div className="min-h-screen bg-[#f6f6f6]">
       <header className="bg-white text-black sticky text-lg top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
@@ -69,11 +69,15 @@ export default function Gear() {
               />
             </div>
             <div className="flex items-center gap-2">
-              <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">
+              <div className="bg-[#4A6741] text-white rounded-md px-2 py-1 text-xs font-medium">
                 {currentUser.credits} Credits
               </div>
               <div className="flex items-center space-x-10">
-                <span className="hidden md:inline">{currentUser.name}</span>
+                <Link href="/user/dashboard">
+                  <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none ">
+                    {currentUser.name}
+                  </Button>
+                </Link>
                 <button
                   className="bg-white hover:bg-black hover:text-white px-2 py-0.5 text-md text-black border-black border-1 rounded-md"
                   onClick={() => {

@@ -45,7 +45,7 @@ export default function UserDashboard() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#F5F5F0]">
+    <div className="min-h-screen bg-[#f6f6f6]">
       <header className="bg-white text-black sticky text-lg top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
@@ -65,7 +65,11 @@ export default function UserDashboard() {
                 {currentUser.credits} Credits
               </div>
               <div className="flex items-center space-x-10">
-                <span className="hidden md:inline">{currentUser.name}</span>
+                <Link href="/user/dashboard">
+                  <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none ">
+                    {currentUser.name}
+                  </Button>
+                </Link>
                 <button
                   className="bg-white hover:bg-black hover:text-white px-2 py-0.5 text-md text-black border-black border-1 rounded-md"
                   onClick={() => {
@@ -86,7 +90,7 @@ export default function UserDashboard() {
         <div className="grid md:grid-cols-4 gap-6">
           <div className="md:col-span-1">
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="px-6">
                 <div className="flex flex-col items-center text-center">
                   <h2 className="text-xl font-bold mb-1">{user.name}</h2>
                   <div className="flex items-center mb-2">
@@ -126,6 +130,11 @@ export default function UserDashboard() {
                 </div>
               </CardContent>
             </Card>
+            <Link href="/dashboard">
+              <Button className="w-full bg-[#4A6741] text-white hover:bg-[#3a5434] mt-6 text-lg p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
+                View All Gear Requests
+              </Button>
+            </Link>
           </div>
 
           <div className="md:col-span-3">
