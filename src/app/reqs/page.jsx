@@ -150,13 +150,6 @@ export default function Home() {
 
           {/* User Info & Actions - Right Side */}
           <div className="flex items-center gap-6 justify-end">
-            {/* Credits */}
-            {user && (
-              <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium">
-                {user.credits} Credits
-              </div>
-            )}
-
             {/* User Name */}
             {user && (
               <Link href="/user/dashboard">
@@ -186,7 +179,6 @@ export default function Home() {
           {user && (
             <div className="text-center mb-6 mt-4 text-lg">
               <p>User: {user.name || user.email || user.uid}</p>
-              <p>Credits: {user.credits || 0}</p>
             </div>
           )}
           <div className="bg-black rounded-lg px-6 py-6">
