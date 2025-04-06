@@ -256,9 +256,6 @@ export default function Home() {
                       {post.title}
                     </span>
                     <span className="text-sm">{post.description}</span>
-                    <span className="text-xs italic text-gray-400">
-                      Status: {post.available ? "Open" : "Fulfilled"}
-                    </span>
                   </div>
                   <button
                     onClick={() => deletePost(post.id)}
