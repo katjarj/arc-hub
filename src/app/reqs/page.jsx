@@ -28,7 +28,7 @@ export default function Home() {
     description: "",
     date: "",
     about: "",
-
+    fulfilled: boolean,
   });
 
   // Fetch user profile data using the custom hook - THIS MUST BE AT THE TOP LEVEL
@@ -67,7 +67,7 @@ export default function Home() {
           date: date.trim(),
           about: about.trim(),
           createdAt: serverTimestamp(),
-          available: true,
+          fulfilled: false,
           userId: user?.uid || "anonymous", // Link post to specific user
         });
 
