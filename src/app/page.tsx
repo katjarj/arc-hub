@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -50,9 +49,9 @@ export default function Home() {
               you need for your next adventure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/sign-in">
+              <Link href="/sign-up">
                 <Button size="lg" className="bg-[#4A6741] hover:bg-[#3A5331]">
-                  Browse Requests
+                  Get Started
                 </Button>
               </Link>
               <Link href="/sign-in">
@@ -60,8 +59,8 @@ export default function Home() {
                   size="lg"
                   className="text-black border-white bg-white hover:bg-white/70"
                 >
-                  Request Gear
-                </Button>   
+                  Log In
+                </Button>
               </Link>
             </div>
           </div>
@@ -276,9 +275,11 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-10 flex justify-center">
-              {/* <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
-                Join Now
-              </Button> */}
+              <Link href="/sign-up">
+                <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
+                  Join Now
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
