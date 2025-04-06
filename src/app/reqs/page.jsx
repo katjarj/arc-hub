@@ -192,7 +192,7 @@ export default function Home() {
                 />
               </div>
               <button
-                className="col-span-6 justify-self-center mt-5 mb-5 w-1/3 text-white bg-[#4A6741] hover:bg-green-800 p-3 text-xl rounded"
+                className="col-span-6 justify-self-center mt-5 mb-5 w-1/3 text-white border-black border-1 bg-[#4A6741] hover:bg-white/5 hover:border-white hover:text-white p-3 text-xl rounded"
                 type="submit"
                 disabled={loading || !user}
               >
