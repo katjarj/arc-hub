@@ -50,17 +50,19 @@ export default function Home() {
               you need for your next adventure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/dashboard">
+              <Link href="/sign-in">
                 <Button size="lg" className="bg-[#4A6741] hover:bg-[#3A5331]">
                   Browse Requests
                 </Button>
               </Link>
-              <Button
-                size="lg"
-                className="text-black border-white bg-white hover:bg-white/70"
-              >
-                Request Gear
-              </Button>
+              <Link href="/sign-in">
+                <Button
+                  size="lg"
+                  className="text-black border-white bg-white hover:bg-white/70"
+                >
+                  Request Gear
+                </Button>   
+              </Link>
             </div>
           </div>
         </section>
@@ -274,9 +276,9 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-10 flex justify-center">
-              <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
+              {/* <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
                 Join Now
-              </Button>
+              </Button> */}
             </div>
           </div>
         </section>
