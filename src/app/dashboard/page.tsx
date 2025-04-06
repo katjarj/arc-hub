@@ -11,10 +11,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { requestData, currentUser } from "@/lib/data";
 
-import {useAuthState} from 'react-firebase-hooks/auth'
-import {auth} from '@/app/firebase/config'
-import { useRouter } from 'next/navigation';
-import { signOut } from 'firebase/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
 
 export default function Gear() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -34,15 +34,14 @@ export default function Gear() {
   );
 
   const [user] = useAuthState(auth);
-  const router = useRouter()
-//   const userSession = sessionStorage.getItem('user');
+  const router = useRouter();
+  //   const userSession = sessionStorage.getItem('user');
 
-  console.log({user})
- 
-//   if (!user && !userSession){
-//     router.push('/')
-//   }
-  
+  console.log({ user });
+
+  //   if (!user && !userSession){
+  //     router.push('/')
+  //   }
 
   return (
     <div className="min-h-screen bg-[#F5F5F0]">
@@ -65,7 +64,7 @@ export default function Gear() {
               <Input
                 type="search"
                 placeholder="Search requests..."
-                className="pl-8 bg-black/10 border-white/10 text-black placeholder:text-black/70"
+                className="pl-8 bg-black/5 border-white/10 text-black placeholder:text-black/70"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -74,20 +73,23 @@ export default function Gear() {
               <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">
                 {currentUser.credits} Credits
               </div>
-              <button
-  onClick={() => {
-    signOut(auth); // Sign the user out of Firebase
-    sessionStorage.removeItem('user'); // Remove the user session
-    router.push('/'); // Redirect to the home page
-  }}
->
-  Log out
-</button>
               <Avatar className="h-8 w-8">
                 <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
-              <span className="hidden md:inline">{currentUser.name}</span>
+              <div className="flex items-center space-x-10">
+                <span className="hidden md:inline">{currentUser.name}</span>
+                <button
+                  className="bg-white hover:bg-black hover:text-white px-2 py-0.5 text-md text-black border-black border-1 rounded-md"
+                  onClick={() => {
+                    signOut(auth); // Sign the user out of Firebase
+                    sessionStorage.removeItem("user"); // Remove the user session
+                    router.push("/"); // Redirect to the home page
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
             </div>
           </div>
         </div>
