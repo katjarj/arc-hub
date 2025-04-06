@@ -10,7 +10,7 @@ ARK'SHARE'YX is a web app created for youCode, a 24-hour hackathon dedicated to 
 
 ARK'SHARE'YX is designed to help those from the greater Arc'teryx community share their outdoor gear with each other. By allowing users to connect through loaning their unused equipment and borrowing items whose cost may otherwise be prohibitive, ARK'SHARE'YX promotes sustainability, accessibility, and community.
 
-## Features:
+## Features
 
 - **Personal Collection:** On your profile, add and maintain a collection of items you're able to lend to others.
 - **Earn and Spend Credits:** You start with one credit&mdash;earn more by lending your gear to others, and redeem them to borrow!
@@ -31,6 +31,8 @@ Our tech stack for this project includes:
 - Tailwind CSS
 - Firebase
 
-## Image Credits:
+## Image Credits
 
-Ali Kazal/Unsplash, Arc'teryx
+- Ali Kazal/Unsplash
+- Arc'teryx
+- Everett McIntire/Unsplash
