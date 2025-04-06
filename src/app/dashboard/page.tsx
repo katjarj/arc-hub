@@ -9,6 +9,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { collection, onSnapshot } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import useCurrentUser from "@/app/hooks/useCurrentUser";
+
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
@@ -22,9 +24,11 @@ interface Post {
 }
 
 export default function Gear() {
+  // Fetch user profile data using the custom hook - THIS MUST BE AT THE TOP LEVEL
+  const { user, loading } = useCurrentUser();
   const [searchQuery, setSearchQuery] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
-  const [user] = useAuthState(auth);
+//   const [user] = useAuthState(auth);
   const router = useRouter();
 
   useEffect(() => {
@@ -87,7 +91,7 @@ export default function Gear() {
                   <>
                     <Link href="/user/dashboard">
                       <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none cursor-pointer">
-                        {user.displayName || "User"}
+                        {user.name || "User"}
                       </Button>
                     </Link>
                     <button
@@ -136,7 +140,7 @@ export default function Gear() {
                 {/* Add filters here if needed */}
               </CardContent>
             </Card>
-            
+
             {/* Add View Dashboard button */}
             <Link href="/user/dashboard">
               <Button className="w-full bg-[#4A6741] text-white text-md p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
@@ -179,14 +183,22 @@ export default function Gear() {
               <TabsContent value="all" className="mt-0">
                 <div className="grid gap-6">
                   {filteredPosts.map((post) => (
-                    <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow h-full">
+                    <Card
+                      key={post.id}
+                      className="overflow-hidden hover:shadow-lg transition-shadow h-full"
+                    >
                       <CardContent className="p-6">
-                        <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
+                        <h3 className="text-xl font-semibold mb-2">
+                          {post.title}
+                        </h3>
                         <p className="text-gray-600 mb-4">{post.description}</p>
                         <p className="text-gray-600 mb-4">{post.date}</p>
                         <p className="text-gray-600 mb-4">{post.about}</p>
                         <div className="flex justify-between items-center">
-                          <Button size="sm" className="bg-[#4A6741] hover:bg-[#3A5331]">
+                          <Button
+                            size="sm"
+                            className="bg-[#4A6741] hover:bg-[#3A5331]"
+                          >
                             Fulfill Request
                           </Button>
                         </div>
