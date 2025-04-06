@@ -97,10 +97,10 @@ export default function UserDashboard() {
               <CardContent className="px-6">
                 <div className="flex flex-col items-center text-center">
                   <h2 className="text-3xl font-bold mb-6">{user.name}</h2>
-                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
+                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-2">
                     {user.organizationName}
                   </div>
-                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-2">
+                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-6">
                     {user.credits} Credits Available
                   </div>
                   <div className="w-full space-y-2">
