@@ -97,11 +97,11 @@ export default function UserDashboard() {
               <CardContent className="px-6">
                 <div className="flex flex-col items-center text-center">
                   <h2 className="text-3xl font-bold mb-6">{user.name}</h2>
-                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-2">
-                    {user.credits} Credits Available
-                  </div>
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
                     {user.organizationName}
+                  </div>
+                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-2">
+                    {user.credits} Credits Available
                   </div>
                   <div className="w-full space-y-2">
                     <Button variant="outline" className="w-full justify-start">
@@ -125,7 +125,9 @@ export default function UserDashboard() {
 
           {/* Right Column: Only Activity Tab for User's Requests */}
           <div className="md:col-span-3">
-            <h1 className="text-2xl font-bold mb-5 mt-2 ml-2">Your Active Requests</h1>
+            <h1 className="text-2xl font-bold mb-5 mt-2 ml-2">
+              Your Active Requests
+            </h1>
             {posts.length > 0 ? (
               <div className="space-y-4">
                 {posts.map((post) => (
