@@ -26,9 +26,8 @@ const SignIn = () => {
 
   return (
     <div>
-      {" "}
-      <header className="bg-white text-black sticky text-lg top-0 z-10">
-        <div className="container px-5 py-4 flex justify-start items-start">
+      <header className="bg-white text-black sticky top-0 left-0 z-10 w-full">
+        <div className="container px-5 py-4 flex justify-start items-center">
           <Link href="/" className="flex items-center gap-2">
             <img
               src="/images/arc-logo.png"
