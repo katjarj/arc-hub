@@ -9,25 +9,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
   MapPin,
   Package,
-  PlusCircle,
   Settings,
   Star,
   UserCircle,
 } from "lucide-react";
 import { gearData, currentUser } from "@/lib/data";
+import { getAuth, signOut } from "firebase/auth";
+import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
 
 export default function UserDashboard() {
   // Mock user data
   const user = {
     name: "John Doe",
-    avatar: "/placeholder.svg?height=100&width=100",
     credits: 3,
     memberSince: "January 2023",
     location: "Vancouver, BC",
@@ -36,12 +35,14 @@ export default function UserDashboard() {
   };
 
   // Filter gear for different tabs
-  const myListings = gearData.filter((item) => item.owner.name === "John Doe");
   const borrowing = gearData.filter((_, index) => index === 2); // Mock data - just one item
   const lending = gearData.filter((_, index) => index === 5); // Mock data - just one item
   const pendingRequests = gearData
     .filter((_, index) => index === 0 || index === 1)
     .slice(0, 2); // Mock data - first two items
+
+  const auth = getAuth();
+  const router = useRouter();
 
   return (
     <div className="min-h-screen bg-[#F5F5F0]">
@@ -59,17 +60,22 @@ export default function UserDashboard() {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">
                 {currentUser.credits} Credits
               </div>
-              <Avatar className="h-8 w-8">
-                <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
-              <div className="text-black text-md font-medium">
-                {" "}
-                {currentUser.name}{" "}
+              <div className="flex items-center space-x-10">
+                <span className="hidden md:inline">{currentUser.name}</span>
+                <button
+                  className="bg-white hover:bg-black hover:text-white px-2 py-0.5 text-md text-black border-black border-1 rounded-md"
+                  onClick={() => {
+                    signOut(auth); // Sign the user out of Firebase
+                    sessionStorage.removeItem("user"); // Remove the user session
+                    router.push("/"); // Redirect to the home page
+                  }}
+                >
+                  Log Out
+                </button>
               </div>
             </div>
           </div>
@@ -82,10 +88,6 @@ export default function UserDashboard() {
             <Card>
               <CardContent className="p-6">
                 <div className="flex flex-col items-center text-center">
-                  <Avatar className="h-24 w-24 mb-4">
-                    <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
                   <h2 className="text-xl font-bold mb-1">{user.name}</h2>
                   <div className="flex items-center mb-2">
                     <MapPin className="h-4 w-4 text-gray-500 mr-1" />
@@ -236,7 +238,6 @@ export default function UserDashboard() {
                                     From: {item.owner.name}
                                   </p>
                                 </div>
-                                <Badge className="bg-green-500">Active</Badge>
                               </div>
                               <div className="flex items-center gap-2 mt-2 text-sm text-gray-600">
                                 <Calendar className="h-4 w-4" />
@@ -316,7 +317,6 @@ export default function UserDashboard() {
                                     To: Emma Wilson
                                   </p>
                                 </div>
-                                <Badge className="bg-green-500">Active</Badge>
                               </div>
                               <div className="flex items-center gap-2 mt-2 text-sm text-gray-600">
                                 <Calendar className="h-4 w-4" />

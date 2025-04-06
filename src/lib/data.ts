@@ -14,7 +14,6 @@ export const requestData = [
     requester: {
       id: 1,
       name: "Sarah Johnson",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.8,
       memberSince: "March 2022",
       responseRate: "95%",
@@ -36,7 +35,6 @@ export const requestData = [
     requester: {
       id: 2,
       name: "Michael Chen",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.9,
       memberSince: "January 2022",
       responseRate: "98%",
@@ -58,7 +56,6 @@ export const requestData = [
     requester: {
       id: 3,
       name: "James Wilson",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.7,
       memberSince: "February 2022",
       responseRate: "90%",
@@ -66,7 +63,6 @@ export const requestData = [
     fulfiller: {
       id: 4,
       name: "Emma Wilson",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.8,
       memberSince: "December 2021",
       responseRate: "95%",
@@ -87,7 +83,6 @@ export const requestData = [
     requester: {
       id: 5,
       name: "David Thompson",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.6,
       memberSince: "April 2022",
       responseRate: "85%",
@@ -109,7 +104,6 @@ export const requestData = [
     requester: {
       id: 6,
       name: "Olivia Martinez",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.9,
       memberSince: "March 2022",
       responseRate: "97%",
@@ -117,7 +111,6 @@ export const requestData = [
     fulfiller: {
       id: 1,
       name: "John Doe",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.9,
       memberSince: "January 2022",
       responseRate: "99%",
@@ -129,7 +122,6 @@ export const requestData = [
         reviewer: {
           id: 6,
           name: "Olivia Martinez",
-          avatar: "/placeholder.svg?height=40&width=40",
         },
         rating: 5,
         comment:
@@ -141,7 +133,6 @@ export const requestData = [
         reviewer: {
           id: 1,
           name: "John Doe",
-          avatar: "/placeholder.svg?height=40&width=40",
         },
         rating: 5,
         comment: "Olivia took great care of my backpack and returned it on time. Would definitely lend to her again!",
@@ -162,7 +153,6 @@ export const requestData = [
     requester: {
       id: 7,
       name: "Sophia Kim",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.8,
       memberSince: "February 2022",
       responseRate: "93%",
@@ -170,7 +160,6 @@ export const requestData = [
     fulfiller: {
       id: 8,
       name: "Ryan Patel",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.7,
       memberSince: "January 2022",
       responseRate: "90%",
@@ -182,7 +171,6 @@ export const requestData = [
         reviewer: {
           id: 7,
           name: "Sophia Kim",
-          avatar: "/placeholder.svg?height=40&width=40",
         },
         rating: 5,
         comment:
@@ -194,7 +182,6 @@ export const requestData = [
         reviewer: {
           id: 8,
           name: "Ryan Patel",
-          avatar: "/placeholder.svg?height=40&width=40",
         },
         rating: 5,
         comment:
@@ -216,7 +203,6 @@ export const requestData = [
     requester: {
       id: 9,
       name: "Alex Rivera",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.5,
       memberSince: "April 2022",
       responseRate: "88%",
@@ -238,7 +224,6 @@ export const requestData = [
     requester: {
       id: 10,
       name: "Jessica Lee",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.9,
       memberSince: "March 2022",
       responseRate: "96%",
@@ -263,7 +248,6 @@ export const categories = [
 export const currentUser = {
   id: 1,
   name: "John Doe",
-  avatar: "/placeholder.svg?height=100&width=100",
   credits: 3,
   memberSince: "January 2022",
   location: "Vancouver, BC",
@@ -288,7 +272,6 @@ export const gearData = [
     owner: {
       id: 1,
       name: "John Doe",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.9,
       memberSince: "January 2022",
       responseRate: "99%",
@@ -298,7 +281,6 @@ export const gearData = [
       {
         id: 1,
         name: "Sarah Johnson",
-        avatar: "/placeholder.svg?height=40&width=40",
         rating: 5,
         comment: "Great jacket! Perfect for my hiking trip.",
         date: "May 10, 2023",
@@ -306,7 +288,6 @@ export const gearData = [
       {
         id: 2,
         name: "Michael Chen",
-        avatar: "/placeholder.svg?height=40&width=40",
         rating: 4,
         comment: "Good jacket, but a bit worn.",
         date: "May 12, 2023",
@@ -329,7 +310,6 @@ export const gearData = [
     owner: {
       id: 2,
       name: "Emma Wilson",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.8,
       memberSince: "December 2021",
       responseRate: "95%",
@@ -339,7 +319,6 @@ export const gearData = [
       {
         id: 3,
         name: "David Thompson",
-        avatar: "/placeholder.svg?height=40&width=40",
         rating: 5,
         comment: "Excellent backpack! Very comfortable and durable.",
         date: "May 15, 2023",
@@ -347,7 +326,6 @@ export const gearData = [
       {
         id: 4,
         name: "Olivia Martinez",
-        avatar: "/placeholder.svg?height=40&width=40",
         rating: 3,
         comment: "The backpack was a bit dirty.",
         date: "May 18, 2023",
@@ -369,7 +347,6 @@ export const gearData = [
     owner: {
       id: 3,
       name: "Ryan Patel",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.7,
       memberSince: "January 2022",
       responseRate: "90%",
@@ -379,7 +356,6 @@ export const gearData = [
       {
         id: 5,
         name: "Sophia Kim",
-        avatar: "/placeholder.svg?height=40&width=40",
         rating: 5,
         comment: "Amazing climbing shoes! Great grip and comfortable fit.",
         date: "May 20, 2023",
@@ -387,7 +363,6 @@ export const gearData = [
       {
         id: 6,
         name: "Alex Rivera",
-        avatar: "/placeholder.svg?height=40&width=40",
         rating: 5,
         comment: "Shoes were in perfect condition!",
         date: "May 22, 2023",
@@ -410,7 +385,6 @@ export const gearData = [
     owner: {
       id: 4,
       name: "Jessica Lee",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.9,
       memberSince: "March 2022",
       responseRate: "96%",
@@ -434,7 +408,6 @@ export const gearData = [
     owner: {
       id: 5,
       name: "Sophia Kim",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.8,
       memberSince: "February 2022",
       responseRate: "93%",
@@ -458,7 +431,6 @@ export const gearData = [
     owner: {
       id: 6,
       name: "David Thompson",
-      avatar: "/placeholder.svg?height=40&width=40",
       rating: 4.6,
       memberSince: "April 2022",
       responseRate: "85%",

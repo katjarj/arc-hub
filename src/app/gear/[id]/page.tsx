@@ -17,7 +17,6 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { gearData } from "@/lib/data"
@@ -60,10 +59,7 @@ export default function GearPage() {
 
           <div className="flex items-center gap-4">
             <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">3 Credits</div>
-            <Avatar className="h-8 w-8">
-              <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
+
           </div>
         </div>
       </header>
@@ -101,10 +97,6 @@ export default function GearPage() {
               </div>
 
               <div className="flex items-center gap-3 mb-6">
-                <Avatar>
-                  <AvatarImage src={item.owner.avatar} alt={item.owner.name} />
-                  <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
-                </Avatar>
                 <div>
                   <p className="font-medium">{item.owner.name}</p>
                   <div className="flex items-center">
@@ -228,10 +220,6 @@ export default function GearPage() {
                     {displayedReviews.map((review, index) => (
                       <div key={index} className="pb-4 border-b last:border-0 last:pb-0">
                         <div className="flex items-center gap-3 mb-2">
-                          <Avatar>
-                            <AvatarImage src={review.avatar} alt={review.name} />
-                            <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                          </Avatar>
                           <div>
                             <p className="font-medium">{review.name}</p>
                             <div className="flex items-center">
@@ -274,10 +262,7 @@ export default function GearPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center gap-3 mb-4">
-                    <Avatar className="h-12 w-12">
-                      <AvatarImage src={item.owner.avatar} alt={item.owner.name} />
-                      <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
+
                     <div>
                       <p className="font-medium">{item.owner.name}</p>
                       <div className="flex items-center">

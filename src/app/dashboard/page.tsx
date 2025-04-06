@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { requestData, currentUser } from "@/lib/data";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -73,10 +72,6 @@ export default function Gear() {
               <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">
                 {currentUser.credits} Credits
               </div>
-              <Avatar className="h-8 w-8">
-                <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
               <div className="flex items-center space-x-10">
                 <span className="hidden md:inline">{currentUser.name}</span>
                 <button
@@ -312,15 +307,6 @@ export default function Gear() {
                                 <span>{request.timeframe}</span>
                               </div>
                               <div className="flex items-center gap-2 mt-auto">
-                                <Avatar className="h-8 w-8">
-                                  <AvatarImage
-                                    src={request.requester.avatar}
-                                    alt={request.requester.name}
-                                  />
-                                  <AvatarFallback>
-                                    {request.requester.name.charAt(0)}
-                                  </AvatarFallback>
-                                </Avatar>
                                 <div>
                                   <p className="text-sm font-medium">
                                     {request.requester.name}
@@ -402,15 +388,6 @@ export default function Gear() {
                                   <span>{request.timeframe}</span>
                                 </div>
                                 <div className="flex items-center gap-2 mt-auto">
-                                  <Avatar className="h-8 w-8">
-                                    <AvatarImage
-                                      src={request.requester.avatar}
-                                      alt={request.requester.name}
-                                    />
-                                    <AvatarFallback>
-                                      {request.requester.name.charAt(0)}
-                                    </AvatarFallback>
-                                  </Avatar>
                                   <div>
                                     <p className="text-sm font-medium">
                                       {request.requester.name}
@@ -494,15 +471,6 @@ export default function Gear() {
                                   <span>{request.timeframe}</span>
                                 </div>
                                 <div className="flex items-center gap-2 mt-auto">
-                                  <Avatar className="h-8 w-8">
-                                    <AvatarImage
-                                      src={request.requester.avatar}
-                                      alt={request.requester.name}
-                                    />
-                                    <AvatarFallback>
-                                      {request.requester.name.charAt(0)}
-                                    </AvatarFallback>
-                                  </Avatar>
                                   <div>
                                     <p className="text-sm font-medium">
                                       {request.requester.name}
@@ -584,15 +552,6 @@ export default function Gear() {
                                   <span>{request.timeframe}</span>
                                 </div>
                                 <div className="flex items-center gap-2 mt-auto">
-                                  <Avatar className="h-8 w-8">
-                                    <AvatarImage
-                                      src={request.requester.avatar}
-                                      alt={request.requester.name}
-                                    />
-                                    <AvatarFallback>
-                                      {request.requester.name.charAt(0)}
-                                    </AvatarFallback>
-                                  </Avatar>
                                   <div>
                                     <p className="text-sm font-medium">
                                       {request.requester.name}
@@ -674,15 +633,7 @@ export default function Gear() {
                                   <span>{request.timeframe}</span>
                                 </div>
                                 <div className="flex items-center gap-2 mt-auto">
-                                  <Avatar className="h-8 w-8">
-                                    <AvatarImage
-                                      src={request.requester.avatar}
-                                      alt={request.requester.name}
-                                    />
-                                    <AvatarFallback>
-                                      {request.requester.name.charAt(0)}
-                                    </AvatarFallback>
-                                  </Avatar>
+
                                   <div>
                                     <p className="text-sm font-medium">
                                       {request.requester.name}

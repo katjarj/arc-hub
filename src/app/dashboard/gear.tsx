@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { gearData } from "@/lib/data"
 
 export default function Gear() {
@@ -55,10 +54,6 @@ export default function Gear() {
             </div>
             <div className="flex items-center gap-2">
               <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">3 Credits</div>
-              <Avatar className="h-8 w-8">
-                <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
               <span className="hidden md:inline">John Doe</span>
             </div>
           </div>
@@ -222,10 +217,6 @@ export default function Gear() {
                         </CardContent>
                         <CardFooter className="p-4 pt-0 mt-auto">
                           <div className="flex items-center gap-2 w-full">
-                            <Avatar className="h-6 w-6">
-                              <AvatarImage src={item.owner.avatar} alt={item.owner.name} />
-                              <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
-                            </Avatar>
                             <span className="text-sm text-gray-600">{item.owner.name}</span>
                             <div className="ml-auto flex items-center">
                               <svg
@@ -285,10 +276,6 @@ export default function Gear() {
                           </CardContent>
                           <CardFooter className="p-4 pt-0 mt-auto">
                             <div className="flex items-center gap-2 w-full">
-                              <Avatar className="h-6 w-6">
-                                <AvatarImage src={item.owner.avatar} alt={item.owner.name} />
-                                <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
-                              </Avatar>
                               <span className="text-sm text-gray-600">{item.owner.name}</span>
                               <div className="ml-auto flex items-center">
                                 <svg
@@ -350,10 +337,6 @@ export default function Gear() {
                           </CardContent>
                           <CardFooter className="p-4 pt-0 mt-auto">
                             <div className="flex items-center gap-2 w-full">
-                              <Avatar className="h-6 w-6">
-                                <AvatarImage src={item.owner.avatar} alt={item.owner.name} />
-                                <AvatarFallback>{item.owner.name.charAt(0)}</AvatarFallback>
-                              </Avatar>
                               <span className="text-sm text-gray-600">{item.owner.name}</span>
                               <div className="ml-auto flex items-center">
                                 <svg
