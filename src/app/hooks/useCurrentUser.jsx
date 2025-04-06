@@ -3,12 +3,19 @@ import { getAuth, onAuthStateChanged, User as FirebaseUser } from "firebase/auth
 import { doc, getDoc } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
 
-const UserProfile = {
-    name: "",
-    email: "",
-    organizationName: "",
-    credits: 0,
-  };
+/**
+ * @typedef {Object} UserProfile
+ * @property {string} uid
+ * @property {string} name
+ * @property {string} email
+ * @property {string} [organizationName]
+ * @property {number} [credits]
+ */
+
+/**
+ * Custom hook to fetch current user data.
+ * @returns {{ user: UserProfile|null, loading: boolean }}
+ */
 
 export default function useUser() {
     const [user, setUser] = useState(null);

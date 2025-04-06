@@ -18,7 +18,7 @@ import {
   Star,
   UserCircle,
 } from "lucide-react";
-import { gearData, currentUser } from "@/lib/data";
+import { gearData } from "@/lib/data";
 import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
 import useCurrentUser from "@/app/hooks/useCurrentUser";
@@ -57,12 +57,12 @@ export default function UserDashboard() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">
-                {currentUser.credits} Credits
+                {user.credits} Credits
               </div>
               <div className="flex items-center space-x-10">
                 <Link href="/user/dashboard">
                   <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none cursor-pointer">
-                    {currentUser.name}
+                    {user.name}
                   </Button>
                 </Link>
                 <button
@@ -87,30 +87,9 @@ export default function UserDashboard() {
             <Card>
               <CardContent className="px-6">
                 <div className="flex flex-col items-center text-center">
-                  <h2 className="text-xl font-bold mb-1">{currentUser.name}</h2>
-                  <div className="flex items-center mb-2">
-                    <MapPin className="h-4 w-4 text-gray-500 mr-1" />
-                    <span className="text-sm text-gray-500">
-                      {currentUser.location}
-                    </span>
-                  </div>
-                  <div className="flex items-center mb-4">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-4 w-4 ${
-                          i < Math.floor(currentUser.rating)
-                            ? "fill-yellow-400 text-yellow-400"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                    <span className="text-sm text-gray-500 ml-1">
-                      ({currentUser.reviewCount})
-                    </span>
-                  </div>
+                  <h2 className="text-xl font-bold mb-1">{user.name}</h2>
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
-                    {currentUser.credits} Credits Available
+                    {user.credits} Credits Available
                   </div>
                   <div className="w-full space-y-2">
                     <Button variant="outline" className="w-full justify-start">
