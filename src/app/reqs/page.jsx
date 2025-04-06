@@ -28,7 +28,7 @@ export default function Home() {
     description: "",
     date: "",
     about: "",
-    fulfilled: boolean,
+    fulfilled: false,
   });
 
   // Fetch user profile data using the custom hook - THIS MUST BE AT THE TOP LEVEL

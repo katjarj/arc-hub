@@ -229,24 +229,24 @@ export default function Gear() {
                         <p className="text-gray-600 mb-4">{post.date}</p>
                         <p className="text-gray-600 mb-4">{post.about}</p>
                         <div className="flex justify-between items-center">
-                          {fulfilledPosts.has(post.id) ? (
-                            <Button
-                              size="sm"
-                              className="bg-gray-500 text-white cursor-not-allowed"
-                              disabled
-                            >
-                              Fulfilled
-                            </Button>
-                          ) : (
-                            <Button
-                              size="sm"
-                              className="bg-[#4A6741] hover:bg-[#3A5331]"
-                              onClick={() => handleFulfillRequest(post.id)}
-                            >
-                              Fulfill Request
-                            </Button>
-                          )}
-                        </div>
+  {post.fulfilled ? (
+    <Button
+      size="sm"
+      className="bg-gray-500 text-white cursor-not-allowed"
+      disabled
+    >
+      Fulfilled
+    </Button>
+  ) : (
+    <Button
+      size="sm"
+      className="bg-[#4A6741] hover:bg-[#3A5331]"
+      onClick={() => handleFulfillRequest(post.id)}
+    >
+      Fulfill Request
+    </Button>
+  )}
+</div>
                       </CardContent>
                     </Card>
                   ))}
