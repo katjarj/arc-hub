@@ -176,6 +176,11 @@ export default function Gear() {
                 </div>
               </CardContent>
             </Card>
+            <Link href="/dashboard">
+              <Button className="w-full bg-[#4A6741] text-white text-md p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
+                View My Dashboard
+              </Button>
+            </Link>
           </div>
 
           <div className="flex-1">
