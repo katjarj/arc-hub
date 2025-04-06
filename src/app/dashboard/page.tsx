@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { collection, doc, onSnapshot,updateDoc } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
-import { useAuthState } from "react-firebase-hooks/auth";
 import useCurrentUser from "@/app/hooks/useCurrentUser";
 import { updateCredits } from "./creditManagement"; // Import updateCredits function
 
@@ -39,7 +38,7 @@ interface Post {
 
 export default function Gear() {
   // Fetch user profile data using the custom hook - THIS MUST BE AT THE TOP LEVEL
-  const { user, loading } = useCurrentUser();
+  const { user } = useCurrentUser();
   const [searchQuery, setSearchQuery] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
   const [fulfilledPosts, setFulfilledPosts] = useState<Set<string>>(new Set());
