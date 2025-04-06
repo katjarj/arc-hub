@@ -29,7 +29,7 @@ import { collection, query, where, onSnapshot } from "firebase/firestore";
 interface Post {
     id: string;
     title: string;
-    location: string;
+    description: string;
   }
 
 export default function UserDashboard() {
@@ -50,7 +50,7 @@ export default function UserDashboard() {
             const data = doc.data();
             return {
               title: data.title || "",       // default to an empty string if missing
-              location: data.location || "",
+              description: data.description || "",
               // include other properties as needed
             } as Post;
           });
@@ -162,7 +162,7 @@ export default function UserDashboard() {
                               {post.title}
                             </h3>
                             <p className="text-gray-600">
-                              Location: {post.location}
+                              Location: {post.description}
                             </p>
                           </div>
                         </CardContent>
