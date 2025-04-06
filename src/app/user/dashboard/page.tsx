@@ -1,24 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Calendar,
-  MapPin,
-  Package,
-  Settings,
-  Star,
-  UserCircle,
-} from "lucide-react";
-import { gearData } from "@/lib/data";
+import { Package, Settings, UserCircle } from "lucide-react";
 import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation"; // or "next/router" if using older Next.js
 import useCurrentUser from "@/app/hooks/useCurrentUser";
@@ -65,12 +49,6 @@ export default function UserDashboard() {
   if (!user) {
     return <div>Please sign in to view your dashboard.</div>;
   }
-  // Filter gear for different tabs
-  const borrowing = gearData.filter((_, index) => index === 2); // Mock data - just one item
-  const lending = gearData.filter((_, index) => index === 5); // Mock data - just one item
-  const pendingRequests = gearData
-    .filter((_, index) => index === 0 || index === 1)
-    .slice(0, 2); // Mock data - first two items
 
   return (
     <div className="min-h-screen bg-[#f6f6f6]">
@@ -178,7 +156,8 @@ export default function UserDashboard() {
                   No requests made yet
                 </h3>
                 <p className="text-gray-500 mb-4">
-                  You haven't made any requests yet. Create one to get started!
+                  You haven&apos;t made any requests yet. Create one to get
+                  started!
                 </p>
               </div>
             )}
