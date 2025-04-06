@@ -5,7 +5,7 @@ import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { collection, doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { fs } from "@/app/firebase/config";
 import useCurrentUser from "@/app/hooks/useCurrentUser";
