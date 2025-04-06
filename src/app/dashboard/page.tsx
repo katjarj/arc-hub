@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { requestData, currentUser } from "@/lib/data";
+import { requestData } from "@/lib/data";
+import useCurrentUser from "@/app/hooks/useCurrentUser";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
@@ -17,6 +18,11 @@ import { signOut } from "firebase/auth";
 
 export default function Gear() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { user, loading } = useCurrentUser();
+  const router = useRouter();
+
+  if (loading) return <div>Loading...</div>;
+  if (!user) return <div>Please sign in to view your dashboard.</div>;
 
   const filteredRequests = requestData.filter(
     (request) =>
@@ -32,15 +38,7 @@ export default function Gear() {
     (request) => request.status === "open"
   );
 
-  const [user] = useAuthState(auth);
-  const router = useRouter();
-  //   const userSession = sessionStorage.getItem('user');
-
   console.log({ user });
-
-  //   if (!user && !userSession){
-  //     router.push('/')
-  //   }
 
   return (
     <div className="min-h-screen bg-[#f6f6f6]">
@@ -68,12 +66,12 @@ export default function Gear() {
             </div>
             <div className="flex items-center gap-2">
               <div className="bg-[#4A6741] text-white rounded-md px-2 py-1 text-xs font-medium">
-                {currentUser.credits} Credits
+                {user.credits} Credits
               </div>
               <div className="flex items-center space-x-10">
                 <Link href="/user/dashboard">
                   <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none cursor-pointer">
-                    {currentUser.name}
+                    {user.name}
                   </Button>
                 </Link>
                 <button
