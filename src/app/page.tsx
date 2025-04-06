@@ -51,14 +51,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/dashboard">
                 <Button size="lg" className="bg-[#4A6741] hover:bg-[#3A5331]">
-                  Browse Available Gear
+                  Browse Requests
                 </Button>
               </Link>
               <Button
                 size="lg"
                 className="text-black border-white bg-white hover:bg-white/70"
               >
-                List Your Gear
+                Request Gear
               </Button>
             </div>
           </div>
