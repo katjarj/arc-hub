@@ -6,6 +6,7 @@ import { updateProfileData } from "./firebaseUtils";
 import { useRouter } from "next/navigation";
 
 const SignUp = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [organizationName, setOrganizationName] = useState("");
@@ -22,12 +23,15 @@ const SignUp = () => {
       const userData = res.user;
 
       sessionStorage.setItem("user", true);
+
+      setName("");
       setEmail("");
       setPassword("");
+      setOrganizationName("");
 
       const userProfile = {
         email: userData.email,
-        name: userData.displayName || "No Name", // If available, otherwise default to 'No Name'
+        name,
         organizationName, // Store the organization name here
         uid: userData.uid,
         createdAt: new Date(),
@@ -49,6 +53,13 @@ const SignUp = () => {
       <div className="bg-gray-800 p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-white text-2xl mb-5">Sign Up</h1>
         <input
+          type="name"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
+        />
+        <input
           type="email"
           placeholder="Email"
           value={email}
@@ -63,8 +74,8 @@ const SignUp = () => {
           className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
         />
         <input
-          type="Organization Name"
-          placeholder="Arcteryx"
+          type="OrganizationName"
+          placeholder="Organization Name"
           value={organizationName}
           onChange={(e) => setOrganizationName(e.target.value)}
           className="w-full p-3 mb-4 bg-gray-700 rounded outline-none text-white placeholder-gray-500"
