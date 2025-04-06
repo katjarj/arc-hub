@@ -89,23 +89,46 @@ export default function Home() {
   };
 
   // Toggle post availability status and update user credits
-  const toggleAvailability = async (id, available) => {
+  //   const toggleAvailability = async (id, available) => {
+  //     try {
+  //       // First check if we have a valid user
+  //       if (!user || loading) {
+  //         console.log("No user found or still loading user data");
+  //         return;
+  //       }
+
+  //       // Update post availability
+  //       const postRef = doc(fs, "posts", id);
+  //       await updateDoc(postRef, {
+  //         available: !available,
+  //       });
+
+  //       // Update user credits - only if user is authenticated
+  //       console.log("Updating credits for user:", user.uid);
+  //       await updateCredits(user.uid);
+  //     } catch (error) {
+  //       console.error("Error toggling availability:", error);
+  //     }
+  //   };
+
+  const toggleAvailability = async (id, currentAvailability) => {
     try {
-      // First check if we have a valid user
       if (!user || loading) {
         console.log("No user found or still loading user data");
         return;
       }
 
+      const newAvailability = !currentAvailability;
+
       // Update post availability
       const postRef = doc(fs, "posts", id);
       await updateDoc(postRef, {
-        available: !available,
+        available: newAvailability,
       });
 
-      // Update user credits - only if user is authenticated
-      console.log("Updating credits for user:", user.uid);
-      await updateCredits(user.uid);
+      // Update credits based on what we're toggling to
+      const creditChange = newAvailability ? -1 : 1; // Going from fulfilled -> open = -1, open -> fulfilled = +1
+      await updateCredits(user.uid, creditChange);
     } catch (error) {
       console.error("Error toggling availability:", error);
     }

@@ -1,19 +1,14 @@
-// lib/firebaseUtils.js
+// creditManagement.js or firebaseUtils.js
+import { fs } from "@/app/firebase/config";
+import { doc, updateDoc, increment } from "firebase/firestore";
 
-import { fs } from "@/app/firebase/config"; // Firebase Firestore instance
-import { doc, updateDoc, increment } from "firebase/firestore"; // Import increment
-
-// Function to increase user's credits by 1
-export const updateCredits = async (uid) => {
+export const updateCredits = async (uid, amount = 1) => {
   try {
-    const userDocRef = doc(fs, "users", uid); // Reference to Firestore users document
-
-    // Increase the credits by 1 using the increment method
+    const userDocRef = doc(fs, "users", uid);
     await updateDoc(userDocRef, {
-      credits: increment(1), // Increment credits field by 1
+      credits: increment(amount),
     });
-
-    console.log("User credits updated successfully");
+    console.log(`User credits updated by ${amount}`);
   } catch (error) {
     console.error("Error updating credits: ", error);
   }
