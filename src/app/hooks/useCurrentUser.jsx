@@ -10,7 +10,7 @@ import { fs } from "@/app/firebase/config";
  * @property {string} email
  * @property {string} [organizationName]
  * @property {number} [credits]
- */
+ */ 
 
 /**
  * Custom hook to fetch current user data.
