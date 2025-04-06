@@ -103,9 +103,6 @@ export default function UserDashboard() {
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-6">
                     {user.credits} Credits Available
                   </div>
-                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-6">
-                    {user.organizationName} Organization
-                  </div>
                 </div>
               </CardContent>
             </Card>
