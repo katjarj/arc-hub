@@ -122,7 +122,7 @@ export default function UserDashboard() {
 
           {/* Right Column: Only Activity Tab for User's Requests */}
           <div className="md:col-span-3">
-            <h1 className="text-2xl font-bold py-5">Your Active Requests</h1>
+            <h1 className="text-2xl font-bold mb-5 mt-2 ml-2">Your Active Requests</h1>
             {posts.length > 0 ? (
               <div className="space-y-4">
                 {posts.map((post) => (
