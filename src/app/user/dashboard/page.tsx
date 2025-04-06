@@ -100,6 +100,9 @@ export default function UserDashboard() {
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
                     {user.credits} Credits Available
                   </div>
+                  <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-4">
+                    {user.organizationName} Organization
+                  </div>
                   <div className="w-full space-y-2">
                     <Button variant="outline" className="w-full justify-start">
                       <UserCircle className="mr-2 h-4 w-4" />
