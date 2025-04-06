@@ -215,7 +215,7 @@ export default function Gear() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-4 w-4 mr-2"
+                    className="h-4 w-4 mr-1"
                   >
                     <path d="M12 5v14" />
                     <path d="M5 12h14" />

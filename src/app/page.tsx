@@ -50,14 +50,17 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/sign-up">
-                <Button size="lg" className="bg-[#4A6741] hover:bg-[#3A5331]">
+                <Button
+                  size="lg"
+                  className="bg-[#4A6741] hover:bg-[#3A5331] text-lg px-6 py-5"
+                >
                   Get Started
                 </Button>
               </Link>
               <Link href="/sign-in">
                 <Button
                   size="lg"
-                  className="text-black border-white bg-white hover:bg-white/70"
+                  className="text-black border-white bg-white hover:bg-white/70 text-lg px-6 py-5"
                 >
                   Log In
                 </Button>
