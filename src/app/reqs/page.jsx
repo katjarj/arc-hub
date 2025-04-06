@@ -26,6 +26,9 @@ export default function Home() {
   const [newPost, setNewPost] = useState({
     title: "",
     description: "",
+    date: "",
+    about: "",
+
   });
 
   // Fetch user profile data using the custom hook - THIS MUST BE AT THE TOP LEVEL
@@ -53,7 +56,7 @@ export default function Home() {
   //   };
   const addPost = async (e) => {
     e.preventDefault();
-    const { title, description } = newPost;
+    const { title, description, date, about } = newPost;
 
     if (title && description) {
       try {
@@ -61,6 +64,8 @@ export default function Home() {
         await addDoc(collection(fs, "posts"), {
           title: title.trim(),
           description: description.trim(),
+          date: date.trim(),
+          about: about.trim(),
           createdAt: serverTimestamp(),
           available: true,
           userId: user?.uid || "anonymous", // Link post to specific user
@@ -70,7 +75,7 @@ export default function Home() {
         await updateCredits(user.uid, -1);
 
         // Clear the form
-        setNewPost({ title: "", description: "" });
+        setNewPost({ title: "", description: "", date: "", description: "" });
       } catch (error) {
         console.error("Error adding post:", error);
       }
@@ -232,6 +237,47 @@ export default function Home() {
                   placeholder="Location"
                 />
               </div>
+
+              <div className="col-span-2">
+                <text
+                  htmlFor="Date Needed"
+                  className="block text-bold text-lg text-white mb-2"
+                >
+                  Date Needed
+                </text>
+                <input
+                  id="date"
+                  name="date"
+                  value={newPost.date}
+                  onChange={(e) =>
+                    setNewPost({ ...newPost, date: e.target.value })
+                  }
+                  className="w-full p-3 rounded bg-[#f6f6f6] text-black placeholder-black/50 placeholder:text-md"
+                  type="text"
+                  placeholder="Date Needed"
+                />
+              </div>
+
+              <div className="col-span-4">
+                <text
+                  htmlFor="about"
+                  className="block text-bold text-lg text-white mb-2"
+                >
+                  Description
+                </text>
+                <input
+                  id="about"
+                  name="about"
+                  value={newPost.about}
+                  onChange={(e) =>
+                    setNewPost({ ...newPost, about: e.target.value })
+                  }
+                  className="w-full p-3 rounded bg-[#f6f6f6] text-black placeholder-black/50 placeholder:text-md"
+                  type="text"
+                  placeholder="Item Description"
+                />
+              </div>
+
               <button
                 className="col-span-6 justify-self-center mt-5 mb-5 w-1/3 text-white border-black border-1 bg-[#4A6741] hover:bg-white/5 hover:border-white hover:text-white p-3 text-xl rounded"
                 type="submit"
@@ -256,6 +302,8 @@ export default function Home() {
                       {post.title}
                     </span>
                     <span className="text-sm">{post.description}</span>
+                    <span className="text-sm">{post.date}</span>
+                    <span className="text-sm">{post.about}</span>
                   </div>
                   <button
                     onClick={() => deletePost(post.id)}
