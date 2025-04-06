@@ -27,10 +27,10 @@ import { fs } from "@/app/firebase/config";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 
 interface Post {
-    id: string;
-    title: string;
-    description: string;
-  }
+  id: string;
+  title: string;
+  description: string;
+}
 
 export default function UserDashboard() {
   const { user, loading } = useCurrentUser();
@@ -38,23 +38,19 @@ export default function UserDashboard() {
   const router = useRouter();
   const [posts, setPosts] = useState<Post[]>([]);
 
-
   useEffect(() => {
     if (!user || loading) return;
-    const q = query(
-      collection(fs, "posts"),
-      where("userId", "==", user.uid)
-    );
+    const q = query(collection(fs, "posts"), where("userId", "==", user.uid));
     const unsubscribe = onSnapshot(q, (snapshot) => {
-        const postsArr = snapshot.docs.map((doc) => {
-            const data = doc.data();
-            return {
-              title: data.title || "",       // default to an empty string if missing
-              description: data.description || "",
-              // include other properties as needed
-            } as Post;
-          });
-          setPosts(postsArr);
+      const postsArr = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          title: data.title || "", // default to an empty string if missing
+          description: data.description || "",
+          // include other properties as needed
+        } as Post;
+      });
+      setPosts(postsArr);
     });
     return () => unsubscribe();
   }, [user, loading]);
@@ -144,46 +140,38 @@ export default function UserDashboard() {
 
           {/* Right Column: Only Activity Tab for User's Requests */}
           <div className="md:col-span-3">
-            <Tabs defaultValue="activity">
-              <TabsList className="mb-6">
-                <TabsTrigger value="activity">Activity</TabsTrigger>
-              </TabsList>
-              <TabsContent value="activity" className="mt-0 space-y-6">
-                {posts.length > 0 ? (
-                  <div className="space-y-4">
-                    {posts.map((post) => (
-                      <Card
-                        key={post.id}
-                        className="overflow-hidden hover:shadow-lg transition-shadow"
-                      >
-                        <CardContent className="p-6">
-                          <div className="flex flex-col gap-2">
-                            <h3 className="text-xl font-semibold">
-                              {post.title}
-                            </h3>
-                            <p className="text-gray-600">
-                              Location: {post.description}
-                            </p>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-6">
-                    <div className="mx-auto w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3">
-                      <Package className="h-6 w-6 text-gray-400" />
-                    </div>
-                    <h3 className="text-lg font-medium mb-1">
-                      No requests made yet
-                    </h3>
-                    <p className="text-gray-500 mb-4">
-                      You haven't made any requests yet. Create one to get started!
-                    </p>
-                  </div>
-                )}
-              </TabsContent>
-            </Tabs>
+            <h1 className="text-2xl font-bold py-5">Your Active Requests</h1>
+            {posts.length > 0 ? (
+              <div className="space-y-4">
+                {posts.map((post) => (
+                  <Card
+                    key={post.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow"
+                  >
+                    <CardContent className="py-1 px-6">
+                      <div className="flex flex-col gap-2">
+                        <h3 className="text-xl font-semibold">{post.title}</h3>
+                        <p className="text-gray-600">
+                          Location: {post.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-6">
+                <div className="mx-auto w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3">
+                  <Package className="h-6 w-6 text-gray-400" />
+                </div>
+                <h3 className="text-lg font-medium mb-1">
+                  No requests made yet
+                </h3>
+                <p className="text-gray-500 mb-4">
+                  You haven't made any requests yet. Create one to get started!
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </main>
