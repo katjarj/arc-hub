@@ -101,7 +101,7 @@ export default function UserDashboard() {
                     {user.organizationName}
                   </div>
                   <div className="bg-[#4A6741] text-white rounded-full px-3 py-1 text-sm font-medium mb-6">
-                    {user.credits} Credits Available
+                    {user.credits} Credits Available NOW
                   </div>
                 </div>
               </CardContent>
