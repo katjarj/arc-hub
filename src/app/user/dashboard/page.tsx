@@ -30,6 +30,8 @@ interface Post {
   id: string;
   title: string;
   description: string;
+  date: string;
+  about: string;
 }
 
 export default function UserDashboard() {
@@ -47,6 +49,8 @@ export default function UserDashboard() {
         return {
           title: data.title || "", // default to an empty string if missing
           description: data.description || "",
+          date: data.date || "",
+          about: data.about || "",
           // include other properties as needed
         } as Post;
       });
@@ -153,6 +157,12 @@ export default function UserDashboard() {
                         <h3 className="text-xl font-semibold">{post.title}</h3>
                         <p className="text-gray-600">
                           Location: {post.description}
+                        </p>
+                        <p className="text-gray-600">
+                          Date Needed: {post.date}
+                        </p>
+                        <p className="text-gray-600">
+                          Description: {post.about}
                         </p>
                       </div>
                     </CardContent>
