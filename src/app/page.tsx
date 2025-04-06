@@ -19,7 +19,7 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex space-x-4">
-            <Link href="/dashboard">
+            <Link href="/sign-in">
               <Button className="bg-white hover:bg-black hover:text-white px-4 py-4 text-md text-black border-black border-1">
                 Log In
               </Button>
@@ -52,14 +52,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/dashboard">
                 <Button size="lg" className="bg-[#4A6741] hover:bg-[#3A5331]">
-                  Browse Available Gear
+                  Browse Requests
                 </Button>
               </Link>
               <Button
                 size="lg"
                 className="text-black border-white bg-white hover:bg-white/70"
               >
-                List Your Gear
+                Request Gear
               </Button>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/2">
                 <img
-                  src="/placeholder.svg?height=500&width=600"
+                  src="images/everett-mcintire-BPCsppbNRMI-unsplash.jpg"
                   alt="People exchanging outdoor gear"
                   className="rounded-lg shadow-lg"
                 />
@@ -190,7 +190,7 @@ export default function Home() {
                         Access Premium Gear
                       </h3>
                       <p className="text-gray-600">
-                        Try high-quality Arc&aposteryx equipment without the
+                        Try high-quality Arc&apos;teryx equipment without the
                         investment.
                       </p>
                     </div>
