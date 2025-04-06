@@ -34,6 +34,7 @@ interface Post {
   description: string;
   date: string;
   about: string;
+  fulfilled: boolean,
 }
 
 export default function Gear() {
@@ -56,6 +57,7 @@ export default function Gear() {
           description: data.description || "",
           date: data.date || "",
           about: data.about || "",
+          fulfilled: data.fulfilled || false,
         } as Post;
       });
       setPosts(postsArr);
