@@ -51,8 +51,6 @@ export default function UserDashboard() {
               alt="Arc Logo"
               className="h-6 w-8"
             />
-            <path d="m18 15-6-6-6 6" />
-            <path d="m18 9-6-6-6 6" />
             <span className="font-bold">ARC&apos;SHARE&apos;YX</span>
           </Link>
 

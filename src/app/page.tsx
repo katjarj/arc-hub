@@ -52,7 +52,7 @@ export default function Home() {
               <Link href="/sign-up">
                 <Button
                   size="lg"
-                  className="bg-[#4A6741] hover:bg-[#3A5331] text-lg px-6 py-5"
+                  className="bg-[#4A6741] hover:bg-[#3A5331] border-1 border-[#4A6741] hover:border-[#3A5331] text-lg px-6 py-5"
                 >
                   Get Started
                 </Button>
@@ -60,7 +60,7 @@ export default function Home() {
               <Link href="/sign-in">
                 <Button
                   size="lg"
-                  className="text-black border-white bg-white hover:bg-white/70 text-lg px-6 py-5"
+                  className="text-black border-white border-1 bg-white hover:bg-transparent hover:border-white hover:border-1 hover:text-white text-lg px-6 py-5"
                 >
                   Log In
                 </Button>
