@@ -15,6 +15,7 @@ import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 
+
 export default function Gear() {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -201,22 +202,24 @@ export default function Gear() {
                   <TabsTrigger value="footwear">Footwear</TabsTrigger>
                 </div>
 
-                <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4 mr-2"
-                  >
-                    <path d="M12 5v14" />
-                    <path d="M5 12h14" />
-                  </svg>
-                  Create Request
-                </Button>
+                <Link href='/reqs'>
+                  <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4 mr-2"
+                    >
+                      <path d="M12 5v14" />
+                      <path d="M5 12h14" />
+                    </svg>
+                    Create Request
+                  </Button>
+                </Link>
               </TabsList>
 
               <TabsContent value="all" className="mt-0">
