@@ -5,29 +5,30 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="bg-white text-[#2B3A2B]">
-        <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+<header className="bg-white text-black sticky text-lg top-0 z-10">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2">
             <img
               src="/images/arc-logo.png"
               alt="Arc Logo"
               className="h-6 w-8"
             />
-            <h1 className="text-2xl font-bold text-black">
-              ARC&apos;SHARE&apos;YX
-            </h1>
-          </div>
-          <div className="flex space-x-4">
-            <Link href="/sign-in">
-              <Button className="bg-white hover:bg-black hover:text-white px-4 py-4 text-md text-black border-black border-1">
-                Log In
-              </Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button className="bg-[#2B3A2B] hover:bg-black px-4 py-4 text-md">
-                Sign Up
-              </Button>
-            </Link>
+            <path d="m18 15-6-6-6 6" />
+            <path d="m18 9-6-6-6 6" />
+            <span className="font-bold">ARC&apos;SHARE&apos;YX</span>
+          </Link>
+
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="bg-[#4A6741] text-white rounded-full px-2 py-1 text-xs font-medium">
+                {currentUser.credits} Credits
+              </div>
+              <Avatar className="h-8 w-8">
+                <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <span className="hidden md:inline">{currentUser.name}</span>
+            </div>
           </div>
         </div>
       </header>
