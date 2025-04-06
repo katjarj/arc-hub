@@ -50,14 +50,17 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/sign-up">
-                <Button size="lg" className="bg-[#4A6741] hover:bg-[#3A5331]">
+                <Button
+                  size="lg"
+                  className="bg-[#4A6741] hover:bg-[#3A5331] text-lg px-6 py-5"
+                >
                   Get Started
                 </Button>
               </Link>
               <Link href="/sign-in">
                 <Button
                   size="lg"
-                  className="text-black border-white bg-white hover:bg-white/70"
+                  className="text-black border-white bg-white hover:bg-white/70 text-lg px-6 py-5"
                 >
                   Log In
                 </Button>
@@ -188,10 +191,10 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">
-                        Access Premium Gear
+                        Save Money, Same Quality
                       </h3>
                       <p className="text-gray-600">
-                        Try high-quality Arc&apos;teryx equipment without the
+                        Try high-quality outdoor equipment without the
                         investment.
                       </p>
                     </div>
@@ -238,7 +241,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">
-                        Connect with the Community
+                        Share The Love
                       </h3>
                       <p className="text-gray-600">
                         Meet fellow outdoor enthusiasts and share experiences
@@ -263,7 +266,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">
-                        Earn While You&apos;re Not Using Your Gear
+                        Give Back To The Community
                       </h3>
                       <p className="text-gray-600">
                         Put your equipment to work when you&apos;re not using it
@@ -273,13 +276,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="mt-10 flex justify-center">
-              <Link href="/sign-up">
-                <Button className="bg-black hover:bg-black/50 text-white px-6 py-6 text-lg">
-                  Join Now
-                </Button>
-              </Link>
             </div>
           </div>
         </section>

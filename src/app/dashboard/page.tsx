@@ -53,8 +53,6 @@ export default function Gear() {
               alt="Arc Logo"
               className="h-6 w-8"
             />
-            <path d="m18 15-6-6-6 6" />
-            <path d="m18 9-6-6-6 6" />
             <span className="font-bold">ARC&apos;SHARE&apos;YX</span>
           </Link>
 
@@ -75,7 +73,7 @@ export default function Gear() {
               </div>
               <div className="flex items-center space-x-10">
                 <Link href="/user/dashboard">
-                  <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none ">
+                  <Button className="px-2 text-md text-black bg-white hover:bg-white/50 rounded-md shadow-none cursor-pointer">
                     {currentUser.name}
                   </Button>
                 </Link>
@@ -177,6 +175,11 @@ export default function Gear() {
                 </div>
               </CardContent>
             </Card>
+            <Link href="/user/dashboard">
+              <Button className="w-full bg-[#4A6741] text-white text-md p-6 hover:bg-white hover:border-[#4A6741] hover:border-1 hover:text-[#4A6741]">
+                View My Dashboard
+              </Button>
+            </Link>
           </div>
 
           <div className="flex-1">
@@ -202,6 +205,7 @@ export default function Gear() {
                   <TabsTrigger value="footwear">Footwear</TabsTrigger>
                 </div>
 
+<<<<<<< HEAD
                 <Link href='/reqs'>
                   <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
                     <svg
@@ -220,6 +224,24 @@ export default function Gear() {
                     Create Request
                   </Button>
                 </Link>
+=======
+                <Button className="bg-[#4A6741] hover:bg-[#3A5331]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4 mr-1"
+                  >
+                    <path d="M12 5v14" />
+                    <path d="M5 12h14" />
+                  </svg>
+                  Create Request
+                </Button>
+>>>>>>> 2e3be0dbfff7b754844643c9b05b8e6f14540cba
               </TabsList>
 
               <TabsContent value="all" className="mt-0">
